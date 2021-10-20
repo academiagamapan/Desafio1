@@ -1,7 +1,5 @@
 # Desafio 1
-Desafio do Programador Turma 1
-<img src="https://user-images.githubusercontent.com/92064386/138007193-47cac947-928e-4909-a299-0ae99b35eed9.png" width="250"/>
-<img src="https://user-images.githubusercontent.com/92064386/138007156-3ae6e393-a770-4bf7-85cb-9f9d390fb118.png" width="350"/>
+<img alt="logo banco pan e gama academy" src="https://github.com/joaomhernandes/PAN-Academy/blob/main/Assets/gama-pan-academy-logo.svg" style="width: 300%, height: auto, margin-left: auto, margin-left: auto" />
 
 
 # Turma 1 👩‍💻👨‍💻🚀
