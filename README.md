@@ -33,7 +33,7 @@ O PROGRAMA TEM QUE RODAR NO CONSOLE.
 ## 1º encontro em 20/11/2021
 
 Inicialmente foi discutido e modelado o problema pelo grupo, chegando ao modelo abaixo:
-<img src="https://user-images.githubusercontent.com/92064386/138007193-47cac947-928e-4909-a299-0ae99b35eed9.png" style="width: 244px, height: auto, margin-left: auto, margin-left: auto"/>
+<img title="Modelo para o desafio 1" src="https://github.com/joaomhernandes/Desafio1/blob/João_Maurício/assets/modelagem.svg" alt="Modelagem do projeto" style="width: 244px, height: auto, margin-left: auto, margin-left: auto"/>
 
 Em seguida foram desenvolvidas as classes Produtos e Loja. Na classe produto, além de seus atributos foram impementados o Constructor, os Getters e Setters, e Sobrescrita o metodo toString, a fim de formatar a saída do método.
 Ja na classe Loja foram implementados os métodos div(), verMenuPrincipal(), verProdutos(), verCarrinho().
