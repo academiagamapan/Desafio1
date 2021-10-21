@@ -41,12 +41,12 @@ public class ProgramaPrincipal {
 			}
 
 			System.out.println();
-			System.out.println("Digite o número do produto que deseja: ");
+			System.out.println("Digite o código do produto que deseja para adicioná-lo ao carrinho: ");
 			System.out.println();
 
 			int entrada = sc.nextInt();
 			while (entrada < 0 || entrada > produtos.size() - 1) {
-				System.out.println("Entrada inválida, digite o número do produto que deseja: ");
+				System.out.println("Entrada inválida, digite o código do produto que deseja para adicioná-lo ao carrinho: ");
 				entrada = sc.nextInt();
 			}
 			
@@ -57,15 +57,16 @@ public class ProgramaPrincipal {
 						System.out.println("Digite a quantidade de "+ produto.getNome() +" que você deseja: ");
 						qtd = sc.nextInt();
 						while (qtd > produtos.get(i).getEstoque() || qtd < 0  ) {
-							System.out.println("Entrada inválida ou estoque insuficiente de "+ produto.getNome()
+							System.out.println("Entrada inválida ou estoque insuficiente de "+  produto.getNome()
 									+ ", digite uma quantidade até " + produtos.get(i).getEstoque() + ": ");
 							qtd = sc.nextInt();
 						}
 						carrinho.inserir(produto);
+						System.out.println("Você adcionou "+ qtd + " pacotes de "+ produto.getNome() + " no seu carrinho!");
 						carrinho.somaCarrinho(produto, qtd);
 						produtos.get(i).setEstoque(produtos.get(i).getEstoque() - qtd);
 					} else {
-						System.out.println("Estoque insuficiente de " + produto.getNome());
+						System.out.println("Desculpe, estoque insuficiente de " + produto.getNome() + " no momento.");
 					}
 				}
 			}
@@ -75,7 +76,7 @@ public class ProgramaPrincipal {
 			System.out.println("Deseja adicionar mais itens no carrinho? (s/n)");
 			entrada2 = sc.next();
 			while (!entrada2.equals("n") && !entrada2.equals("s")) {
-				System.out.println("Entrada inválida, digite 's' para continuar ou 'n' para ir à sessão de pagamento: ");
+				System.out.println("Entrada inválida, digite 's' para continuar comprando ou 'n' para ir à sessão de pagamento: ");
 				entrada2 = sc.next();
 			}
 
