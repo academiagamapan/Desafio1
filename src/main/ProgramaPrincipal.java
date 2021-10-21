@@ -41,12 +41,12 @@ public class ProgramaPrincipal {
 			}
 
 			System.out.println();
-			System.out.println("Digite o código do produto que deseja para adicioná-lo ao carrinho: ");
-			System.out.println();
+			System.out.print("Digite o código do produto que deseja para adicioná-lo ao carrinho: ");
 
 			int entrada = sc.nextInt();
+			System.out.println("======================================================================");
 			while (entrada < 0 || entrada > produtos.size() - 1) {
-				System.out.println("Entrada inválida, digite o código do produto que deseja para adicioná-lo ao carrinho: ");
+				System.out.print("Entrada inválida, digite o código do produto que deseja para adicioná-lo ao carrinho: ");
 				entrada = sc.nextInt();
 			}
 			
@@ -54,14 +54,15 @@ public class ProgramaPrincipal {
 				if (entrada == i) {
 					Produto produto = loja.getProdutos().get(i);
 					if (produtos.get(i).getEstoque() > 0) {
-						System.out.println("Digite a quantidade de "+ produto.getNome() +" que você deseja: ");
+						System.out.print("Digite a quantidade de "+ produto.getNome() +" que você deseja: ");
 						qtd = sc.nextInt();
 						while (qtd > produtos.get(i).getEstoque() || qtd < 0  ) {
-							System.out.println("Entrada inválida ou estoque insuficiente de "+  produto.getNome()
+							System.out.print("Entrada inválida ou estoque insuficiente de "+  produto.getNome()
 									+ ", digite uma quantidade até " + produtos.get(i).getEstoque() + ": ");
 							qtd = sc.nextInt();
 						}
 						carrinho.inserir(produto);
+						System.out.println("======================================================================");
 						System.out.println("Você adcionou "+ qtd + " pacotes de "+ produto.getNome() + " no seu carrinho!");
 						carrinho.somaCarrinho(produto, qtd);
 						produtos.get(i).setEstoque(produtos.get(i).getEstoque() - qtd);
@@ -72,9 +73,10 @@ public class ProgramaPrincipal {
 			}
 
 			System.out.println();
-			System.out.printf("Total do Carrinho = R$%.2f %n", carrinho.getValorTotal());
-			System.out.println("Deseja adicionar mais itens no carrinho? (s/n)");
+			System.out.printf("Valor total do Carrinho = R$%.2f %n", carrinho.getValorTotal());
+			System.out.print("Deseja adicionar mais itens no carrinho? (s/n): ");
 			entrada2 = sc.next();
+			System.out.println("======================================================================");
 			while (!entrada2.equals("n") && !entrada2.equals("s")) {
 				System.out.println("Entrada inválida, digite 's' para continuar comprando ou 'n' para ir à sessão de pagamento: ");
 				entrada2 = sc.next();
@@ -82,24 +84,6 @@ public class ProgramaPrincipal {
 
 		}
 
-//		
-//		System.out.println("~ Seu carrinho ~");
-//		System.out.println();
-//		System.out.println("Produto 	Preço unit.  	Qtd      Preço Total");
-//		for(int i = 0; i < produtos.length; i++ ) {
-//			if (estoque[i] < 10) {
-//				System.out.println(produtos[i] + "         	" 
-//							+ precos[i] + "  	        " 
-//							+ (10 - estoque[i]) + "           " 
-//							+ ((10 - estoque[i]) * precos[i] ));
-//				
-//		}
-//		}
-//		System.out.println();
-//		System.out.printf("Total do Carrinho = R$%.2f %n", total);
-//		sc.close();
-//	}
-//	}
+
 	}
-//	}
 }
