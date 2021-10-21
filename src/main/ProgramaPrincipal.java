@@ -49,70 +49,26 @@ public class ProgramaPrincipal {
 				System.out.println("Entrada inválida, digite o número do produto que deseja: ");
 				entrada = sc.nextInt();
 			}
-
-			if (entrada == 0) {
-				if (produtos.get(0).getEstoque() > 0) {
-					System.out.println("Digite a quantidade de "+ p0.getNome() +" que você deseja: ");
-					qtd = sc.nextInt();
-					while (qtd > produtos.get(0).getEstoque() || qtd < 0  ) {
-						System.out.println("Entrada inválida ou estoque insuficiente de "+ p0.getNome()
-								+ ", digite uma quantidade até " + produtos.get(0).getEstoque() + ": ");
+			
+			for(int i = 0; i < loja.getProdutos().size(); i++) {
+				if (entrada == i) {
+					Produto produto = loja.getProdutos().get(i);
+					if (produtos.get(i).getEstoque() > 0) {
+						System.out.println("Digite a quantidade de "+ produto.getNome() +" que você deseja: ");
 						qtd = sc.nextInt();
+						while (qtd > produtos.get(i).getEstoque() || qtd < 0  ) {
+							System.out.println("Entrada inválida ou estoque insuficiente de "+ produto.getNome()
+									+ ", digite uma quantidade até " + produtos.get(i).getEstoque() + ": ");
+							qtd = sc.nextInt();
+						}
+						carrinho.inserir(produto);
+						carrinho.somaCarrinho(produto, qtd);
+						produtos.get(i).setEstoque(produtos.get(i).getEstoque() - qtd);
+					} else {
+						System.out.println("Estoque insuficiente de " + produto.getNome());
 					}
-					carrinho.inserir(p0);
-					carrinho.somaCarrinho(p0, qtd);
-					produtos.get(0).setEstoque(produtos.get(0).getEstoque() - qtd);
-				} else {
-					System.out.println("Estoque insuficiente de " + p0.getNome());
-				}
-			} else if (entrada == 1) {
-				if (produtos.get(1).getEstoque() > 0) {
-					System.out.println("Digite a quantidade de "+ p1.getNome() +" que você deseja: ");
-					qtd = sc.nextInt();
-					while (qtd > produtos.get(1).getEstoque() || qtd < 0  ) {
-						System.out.println("Entrada inválida ou estoque insuficiente de "+ p1.getNome()
-								+ ", digite uma quantidade até " + produtos.get(1).getEstoque() + ": ");
-						qtd = sc.nextInt();
-					}
-					carrinho.inserir(p1);
-					carrinho.somaCarrinho(p1, qtd);
-					produtos.get(1).setEstoque(produtos.get(1).getEstoque() - qtd);
-				} else {
-					System.out.println("Estoque insuficiente de " + p1.getNome());
-				}
-			} else if (entrada == 2) {
-				if (produtos.get(2).getEstoque() > 0) {
-					System.out.println("Digite a quantidade de "+ p2.getNome() +" que você deseja: ");
-					qtd = sc.nextInt();
-					while (qtd > produtos.get(2).getEstoque() || qtd < 0  ) {
-						System.out.println("Entrada inválida ou estoque insuficiente de "+ p2.getNome()
-								+ ", digite uma quantidade até " + produtos.get(2).getEstoque() + ": ");
-						qtd = sc.nextInt();
-					}
-					carrinho.inserir(p2);
-					carrinho.somaCarrinho(p2, qtd);
-					produtos.get(1).setEstoque(produtos.get(2).getEstoque() - qtd);
-				} else {
-					System.out.println("Estoque insuficiente de " + p2.getNome());
-				}
-			} else {
-				if (produtos.get(3).getEstoque() > 0) {
-					System.out.println("Digite a quantidade de "+ p3.getNome() +" que você deseja: ");
-					qtd = sc.nextInt();
-					while (qtd > produtos.get(3).getEstoque() || qtd < 0  ) {
-						System.out.println("Entrada inválida ou estoque insuficiente de "+ p3.getNome()
-								+ ", digite uma quantidade até " + produtos.get(3).getEstoque() + ": ");
-						qtd = sc.nextInt();
-					}
-					carrinho.inserir(p3);
-					carrinho.somaCarrinho(p3, qtd);
-					produtos.get(1).setEstoque(produtos.get(3).getEstoque() - qtd);
-				} else {
-					System.out.println("Estoque insuficiente de " + p3.getNome());
 				}
 			}
-			
-			// IMPLEMENTAR PROXIMAS ENTRADAS AQUI
 
 			System.out.println();
 			System.out.printf("Total do Carrinho = R$%.2f %n", carrinho.getValorTotal());
