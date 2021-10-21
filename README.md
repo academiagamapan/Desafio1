@@ -2,18 +2,17 @@
 <img alt="logo banco pan e gama academy" src="https://github.com/joaomhernandes/PAN-Academy/blob/main/Assets/gama-pan-academy-logo.svg" style="width: 300%, height: auto, margin-left: auto, margin-left: auto" />
 
 
-# Turma 1 👩‍💻👨‍💻🚀
-##
-Trago uma super proposta aos meus queridos Alunos 🥰.
- Hoje daremos início ao nosso primeiro projeto 😎.
+# Turma 1 - Grupo 6 👩‍💻👨‍💻🚀
 
- Vamos criar nosso primeiro projeto, já pensando em algo real. Algo que utilizamos muito   no nosso dia a dia.
+# Integrantes
 
- E aqui pra nós, esse projeto é um tema pedido em etapas técnicas nas seleções de            algumas empresas.
+ Bruno Claudino Matias, Charllyson Souza, João Maurício Hernandes Carrenho, Mateus Barros Almeida e Paulo Queiroz.
 
-Faremos uma Loja virtual com Carrinho de Compras!!! o /
+## Apresentação do desafio
 
-Em resumo vamos buscar produtos por código, adicionar quantidades dos itens selecionados, somar os preços de diversos itens que queremos comprar e adicionar desconto dependendo da forma do pagamento.
+ Será criado uma Loja virtual com Carrinho de Compras!
+
+ Em resumo será possível buscar produtos por código, adicionar quantidades dos itens selecionados, somar os preços de diversos itens a serem comprados, cálculo das taxas e adicão de desconto dependendo da forma do pagamento.
 
 # Requisitos:
 
@@ -29,12 +28,22 @@ O Projeto pode ser feito somente em uma classe ou da forma que acharem melhor;
 O PROGRAMA TEM QUE RODAR NO CONSOLE.
 
 
-# Dicas:
-Tenham calma, vocês já possuem todos os conhecimentos básicos para realizar o projeto.
-Não queira ver o fluxo de todo imediato! Um passo de cada vez, primeiro resolve um ponto e depois passe para o passo seguinte.
-Não existe apenas uma resposta certa.
-Se zero de algum método ou o que ele realmente faz? Consulte o google, veja exemplos e leia documentos.
-Leia o erro que está dando no seu console ou na própria linha de comando.
-Juntem-se para trocar figurinhas.
+# Desenvolvimento
 
-# Usem a criatividade de vocês 🚀🚀🚀🚀E contem com a gente 🧡.
+## 1º encontro em 20/11/2021
+
+Inicialmente foi discutido e modelado o problema pelo grupo, chegando ao modelo abaixo:
+<img src="https://user-images.githubusercontent.com/92064386/138007193-47cac947-928e-4909-a299-0ae99b35eed9.png" style="width: 244px, height: auto, margin-left: auto, margin-left: auto"/>
+
+Em seguida foram desenvolvidas as classes Produtos e Loja. Na classe produto, além de seus atributos foram impementados o Constructor, os Getters e Setters, e Sobrescrita o metodo toString, a fim de formatar a saída do método.
+Ja na classe Loja foram implementados os métodos div(), verMenuPrincipal(), verProdutos(), verCarrinho().
+ - div() - Cria uma divisória, com ou sem titulo, para ajudar na formatação dos menus e formulários.
+ - verMenuPrincipal() - Imprime a tela de menu, e utiliza a classe Scanner para ler a opção desejada. A estrutura de decisão utilizada foi uma estrutura de decisão condicional encadeada utilizando-se if else, e ao invés de se utilizar uma estrutura de repetição, optou-se por realizar um metodo recursivo, onde o método chama a si mesmo para efetuar uma repetição. 
+ - verProdutos() - (To do) Levará para a lista de produtos disponíveis.
+ - verCarrinho() - (To do) Levará para o carrinho de compras.
+
+Nos próximos encontros serão tratados os (To do) e a implementação dos métodos pagamento(), emitirNota() e cancelarProduto(). 
+
+
+
+
