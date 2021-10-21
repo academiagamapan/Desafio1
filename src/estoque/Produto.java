@@ -1,7 +1,7 @@
 package estoque;
 
 public class Produto {
-	
+
 		private int id_produto;
 		private double preco_produto;
 		private String nome_produto;
@@ -32,7 +32,4 @@ public class Produto {
 		public void setQtda_produto(int qtda_produto) {
 			this.qtda_produto = qtda_produto;
 		}	
-	
-	
-			
 }
