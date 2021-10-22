@@ -17,26 +17,16 @@ public class Produto {
 	}
 
 	public Long getCodigoProd() { return codigoProd; }
-
 	public void setCodigoProd(Long codigoProd) { this.codigoProd = codigoProd; }
 
 	public String getNomeProd() { return nomeProd; }
-
 	public void setNomeProd(String nomeProd) { this.nomeProd = nomeProd; }
 
 	public Long getQntdEstoque() { return qntdEstoque; }
-
 	public void setQntdEstoque(Long qntdEstoque) { this.qntdEstoque = qntdEstoque; }
 
 	public Double getPrecoProd() { return precoProd; }
-
 	public void setPrecoProd(Double precoProd) { this.precoProd = precoProd; }
-
-	@Override
-	public String toString() {
-		return "Produto [codigoProd=" + codigoProd + ", nomeProd=" + nomeProd + ", qntdEstoque=" + qntdEstoque
-				+ ", precoProd=" + precoProd + "]";
-	}
 	
 	public void MenuProdutos(List<Produto> prod) {
 		System.out.printf("\n%6s%18s%16s%11s\n", "Cod.", "Produtos", "Qntd.", "Preço");
@@ -63,4 +53,14 @@ public class Produto {
 		texto += "|";
 		return texto;
 	}
+
+	public void DiminuiEstoque() {
+		
+	}
+	
+	public void RetornarEstoque() {
+		
+		
+	}
+	
 }

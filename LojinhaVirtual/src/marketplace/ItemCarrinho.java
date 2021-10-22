@@ -2,21 +2,15 @@ package marketplace;
 
 public class ItemCarrinho {
 	
-	private Double precoProd;
 	private Long  qntd;
 	private Double precoTotalItem;
-	private Produto produtos;
+	private Integer codProd;
 	
-	public ItemCarrinho(Double precoProd, Long qntd, Double precoTotalItem, Produto produtos) {
-		this.precoProd = precoProd;
+	public ItemCarrinho(Long qntd, Double precoTotalItem, Integer codProd) {
 		this.qntd = qntd;
-		this.precoTotalItem = 0.0;
-		this.setProdutos(produtos);
+		this.precoTotalItem = precoTotalItem;
+		this.codProd = codProd;
 	}
-
-	public Double getPrecoProd() { return precoProd; }
-
-	public void setPrecoProd(Double precoProd) { this.precoProd = precoProd; }
 
 	public Long getQntd() { return qntd; }
 
@@ -26,11 +20,9 @@ public class ItemCarrinho {
 
 	public void setPrecoTotal(Double precoTotalItem) { this.precoTotalItem = precoTotalItem; }
 
-	public Produto getProdutos() { return produtos; }
+	public Integer getCodProd() { return codProd; }
 
-	public void setProdutos(Produto produtos) { this.produtos = produtos; }
-	
-	
+	public void setCodProd(Integer codProd) { this.codProd = codProd; }
 	
 	
 }
