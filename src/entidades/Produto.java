@@ -2,16 +2,16 @@ package entidades;
 
 public class Produto {
 	
-	Integer codigo;
+	int codigo;
 	String nome;
-	Double preço;
-	Integer estoque;
+	double preço;
+	int estoque;
 	
 	public Produto() {
 		
 	}
 	
-	public Produto(Integer codigo, String nome, Double preço, Integer estoque) {
+	public Produto(int codigo, String nome, double preço, int estoque) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
@@ -19,6 +19,13 @@ public class Produto {
 		this.estoque = estoque;
 	}
 
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 
 	public String getNome() {
 		return nome;
@@ -26,16 +33,16 @@ public class Produto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Double getPreço() {
+	public double getPreço() {
 		return preço;
 	}
-	public void setPreço(Double preço) {
+	public void setPreço(double preço) {
 		this.preço = preço;
 	}
-	public Integer getEstoque() {
+	public int getEstoque() {
 		return estoque;
 	}
-	public void setEstoque(Integer estoque) {
+	public void setEstoque(int estoque) {
 		this.estoque = estoque;
 	}
 
@@ -43,6 +50,5 @@ public class Produto {
 	public String toString() {
 		return "["+codigo+"]" +"	    " + nome + "	       	  " + preço + "	       		" +  estoque;
 	}
-	
 	
 }

@@ -4,19 +4,19 @@ import java.util.List;
 import java.util.Scanner;
 
 import entidades.CarrinhoDeCompras;
+import entidades.Item;
 import entidades.Loja;
 import entidades.Produto;
 
 public class ProgramaPrincipal {
 
 	public static void main(String[] args) {
+		Loja loja = new Loja();
 
 		Produto p0 = new Produto(0, "Feijão", 6.99, 10);
 		Produto p1 = new Produto(1, "Arroz", 5.99, 10);
 		Produto p2 = new Produto(2, "Macarrão", 2.99, 10);
 		Produto p3 = new Produto(3, "Açúcar", 3.50, 10);
-
-		Loja loja = new Loja();
 
 		List<Produto> produtos = loja.getProdutos();
 		produtos.add(p0);
@@ -32,7 +32,7 @@ public class ProgramaPrincipal {
 		String entrada2 = "s";
 
 		while (entrada2.equals("s")) {
-			System.out.println("           	 ~ Tabela de produtos ~");
+			System.out.println("           	 ~ Tabela de produtos " + loja.getNome() + " ~");
 			System.out.println();
 			System.out.println("Código      Produto 	    Preço unit.(R$)         Qtd em Estoque");
 			System.out.println();
@@ -44,26 +44,29 @@ public class ProgramaPrincipal {
 			System.out.print("Digite o código do produto que deseja para adicioná-lo ao carrinho: ");
 
 			int entrada = sc.nextInt();
-			System.out.println("======================================================================");
+			System.out.println("===================================================================================");
 			while (entrada < 0 || entrada > produtos.size() - 1) {
-				System.out.print("Entrada inválida, digite o código do produto que deseja para adicioná-lo ao carrinho: ");
+				System.out.print(
+						"Entrada inválida, digite o código do produto que deseja para adicioná-lo ao carrinho: ");
 				entrada = sc.nextInt();
 			}
-			
-			for(int i = 0; i < loja.getProdutos().size(); i++) {
+
+			for (int i = 0; i < loja.getProdutos().size(); i++) {
 				if (entrada == i) {
 					Produto produto = loja.getProdutos().get(i);
 					if (produtos.get(i).getEstoque() > 0) {
-						System.out.print("Digite a quantidade de "+ produto.getNome() +" que você deseja: ");
+						System.out.print("Digite a quantidade de " + produto.getNome() + " que você deseja: ");
 						qtd = sc.nextInt();
-						while (qtd > produtos.get(i).getEstoque() || qtd < 0  ) {
-							System.out.print("Entrada inválida ou estoque insuficiente de "+  produto.getNome()
+						while (qtd > produtos.get(i).getEstoque() || qtd < 0 || qtd == 0) {
+							System.out.print("Entrada inválida ou estoque insuficiente de " + produto.getNome()
 									+ ", digite uma quantidade até " + produtos.get(i).getEstoque() + ": ");
 							qtd = sc.nextInt();
 						}
-						carrinho.inserir(produto);
-						System.out.println("======================================================================");
-						System.out.println("Você adcionou "+ qtd + " pacotes de "+ produto.getNome() + " no seu carrinho!");
+						Item item = new Item(produto, qtd);
+						carrinho.inserir(item);
+						System.out.println("===================================================================================");
+						System.out.println(
+								"Você adcionou " + qtd + " unidade(s) de " + produto.getNome() + " no seu carrinho!");
 						carrinho.somaCarrinho(produto, qtd);
 						produtos.get(i).setEstoque(produtos.get(i).getEstoque() - qtd);
 					} else {
@@ -71,19 +74,80 @@ public class ProgramaPrincipal {
 					}
 				}
 			}
-
 			System.out.println();
-			System.out.printf("Valor total do Carrinho = R$%.2f %n", carrinho.getValorTotal());
+			System.out.printf("Valor total do Carrinho: R$%.2f %n", carrinho.getValorTotal());
 			System.out.print("Deseja adicionar mais itens no carrinho? (s/n): ");
 			entrada2 = sc.next();
-			System.out.println("======================================================================");
+			System.out.println("===================================================================================");
 			while (!entrada2.equals("n") && !entrada2.equals("s")) {
-				System.out.println("Entrada inválida, digite 's' para continuar comprando ou 'n' para ir à sessão de pagamento: ");
+				System.out.println(
+						"Entrada inválida, digite 's' para continuar comprando ou 'n' para ir à sessão de pagamento: ");
 				entrada2 = sc.next();
 			}
-
 		}
-
-
+		System.out.println(carrinho.getItens());
+		System.out.println();
+		System.out.println();
+		System.out.println("           	          ~ Sessão de pagamento " + loja.getNome() + " ~");
+		System.out.println();
+		System.out.println("Itens no seu carrinho: ");
+		System.out.println();
+		System.out.println("Produto 	       Preço unit.(R$)         Qtd no carrinho     Preço Total(R$)");
+		for (Item item : carrinho.getItens()) {
+			System.out.printf("%s			   %.2f		   	   %d		    %.2f %n",
+					item.getProduto().getNome(),item.getProduto().getPreço(),item.getQuantidade(),(item.getProduto().getPreço() * item.getQuantidade()));
+				System.out.println("===================================================================================");
+		}
+		
+		System.out.println();
+		double totalComImposto = (carrinho.getValorTotal() * 0.09) + carrinho.getValorTotal();
+		System.out.printf("Valor total do Carrinho: R$%.2f %n", carrinho.getValorTotal());
+		System.out.print("Valor total da compra com 9% de imposto: R$");
+		System.out.printf("%.2f %n", totalComImposto);
+		System.out.println("===================================================================================");
+		System.out.println("Formas de pagamento: ");
+		System.out.println("	[0] - À vista no dinheiro ou PIX (20% de desconto)");
+		System.out.println("	[1] - À vista no cartão de crédito (10% de desconto)");
+		System.out.println("	[2] - À vista no no cartão de Crédito Banco Pan (15% de desconto");
+		System.out.println("	[3] - Parcelado em até 3x sem juros");
+		System.out.println("	[4] - Parcelado em mais de 3x com juros");
+		System.out.println();
+		System.out.print("Digite o código da forma de pagamento: ");
+		int entrada = sc.nextInt();
+		System.out.println();
+		while (entrada < 0 || entrada > 4) {
+			System.out.print(
+					"Entrada inválida, digite o código do produto que deseja para adicioná-lo ao carrinho: ");
+			entrada = sc.nextInt();
+		}
+		System.out.println("===================================================================================");
+		System.out.println();
+		System.out.println();
+		
+		
+		if (entrada == 0) {
+			loja.notaFiscal(carrinho);
+			loja.pagDinPix(carrinho.getValorTotal());
+		} else if (entrada == 1) {
+			loja.notaFiscal(carrinho);
+			loja.pagAVistaCred(carrinho.getValorTotal());
+		} else if (entrada == 2) {
+			loja.notaFiscal(carrinho);
+			loja.pagAVistaPan(carrinho.getValorTotal());
+		} else if (entrada == 3) {
+			System.out.println("Deseja parcelar em 2 ou 3 vezes? ");
+			int parcela = sc.nextInt();
+			loja.notaFiscal(carrinho);
+			loja.pagSemJuros(carrinho.getValorTotal(), parcela);
+		} else {
+			System.out.println("Deseja parcelar em quantas vezes(entre 4 e 10)? ");
+			int parcela = sc.nextInt();
+			loja.notaFiscal(carrinho);
+			loja.pagComJuros(carrinho.getValorTotal(), parcela);
+		}
+		
+		System.out.println("O PAN STORE AGRADECE A PREFERÊNCIA!");
+		System.out.println("===================================================================================");
+		sc.close();
 	}
 }
