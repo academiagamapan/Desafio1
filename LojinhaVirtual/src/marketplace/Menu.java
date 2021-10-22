@@ -33,4 +33,13 @@ public class Menu {
 		                 "\nDigite a opão: ");
 	}
 	
+	public Boolean OpcaoInvalida(Integer op, Integer intervaloInicial, Integer intervaloFinal) {
+		boolean retorno = false;
+		if(op < intervaloInicial || op > intervaloFinal) {
+			retorno = true;
+		}
+		
+		return retorno;
+	}
+	
 }

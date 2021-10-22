@@ -6,10 +6,10 @@ public class Produto {
 	
 	private Long codigoProd;
 	private String nomeProd;
-	private Long qntdEstoque;
+	private Integer qntdEstoque;
 	private Double precoProd;
 	
-	public Produto(Long codigoProd, String nomeProd, Long qntdEstoque, Double precoProd) {
+	public Produto(Long codigoProd, String nomeProd, Integer qntdEstoque, Double precoProd) {
 		this.codigoProd = codigoProd;
 		this.nomeProd = nomeProd;
 		this.qntdEstoque = qntdEstoque;
@@ -22,8 +22,8 @@ public class Produto {
 	public String getNomeProd() { return nomeProd; }
 	public void setNomeProd(String nomeProd) { this.nomeProd = nomeProd; }
 
-	public Long getQntdEstoque() { return qntdEstoque; }
-	public void setQntdEstoque(Long qntdEstoque) { this.qntdEstoque = qntdEstoque; }
+	public Integer getQntdEstoque() { return qntdEstoque; }
+	public void setQntdEstoque(Integer qntdEstoque) { this.qntdEstoque = qntdEstoque; }
 
 	public Double getPrecoProd() { return precoProd; }
 	public void setPrecoProd(Double precoProd) { this.precoProd = precoProd; }
