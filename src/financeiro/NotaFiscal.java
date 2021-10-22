@@ -12,23 +12,13 @@ import estoque.Produto;
 public class NotaFiscal {
 		
 	// * Metï¿½do criado apenas para teste	
-	public static void main(String[] args) {
-				
-		Produto produto = new Produto();
-		produto.setNome_produto("teste");
-		produto.setId_produto(1);
-		produto.setPreco_produto(5.00);	
+	public static void main(String[] args) {	
 		
-		Produto produto2 = new Produto();
-		produto2.setNome_produto("teste 2");
-		produto2.setId_produto(3);
-		produto2.setPreco_produto(25.00);	
+		Map<Produto, Integer> produtos = new HashMap<Produto, Integer>(); 
+		produtos.put(new Produto(1, 5.00, "teste", 1), 5);
+		produtos.put(new Produto(2, 15.00, "teste 2", 1), 2);
 		
-		HashMap<Produto, Integer> produtos = new HashMap<Produto, Integer>(); 
-		produtos.put(produto, 5);
-		produtos.put(produto2, 2);
-		
-		gerarNota(produtos);
+		gerarNota(produtos, "cvista", 0, "");
 			
 	}
 	// 
@@ -43,8 +33,8 @@ public class NotaFiscal {
 	}
 		
 		
-	public static void gerarNota(HashMap<Produto, Integer> produtos) {
-
+	public static void gerarNota(Map<Produto, Integer> produtos, String codigoFormaPagamento
+									, int numeroParcelas, String tipoPagamento) {
 		
 		DecimalFormat numberFormat = new DecimalFormat("0.00");
 		double valorTotalNota = 0.0;
@@ -58,7 +48,7 @@ public class NotaFiscal {
 		System.out.println("************************************************");
 		System.out.printf("\n");				
 		
-		System.out.println("Cod.   Descriï¿½ï¿½o     Val. Uni   qt    Val. Total");
+		System.out.println("Cod.   Descrição     Val. Uni   qt    Val. Total");
 		System.out.println("------------------------------------------------");
 		
 		for (Map.Entry<Produto, Integer> produto : produtos.entrySet()) {
@@ -77,31 +67,68 @@ public class NotaFiscal {
 				
 		System.out.printf("\n");
 		
-		double valorTotalTributo = calcularImposto(valorTotalNota);
-		double desconto			 = 0;
-		double valorFinalNota 	 = valorTotalNota - desconto;
+		double valorTotalTributo = calcularImposto(valorTotalNota);		
+		double valorFinalNota 	 = obterValorDesconto(codigoFormaPagamento, valorTotalNota, numeroParcelas);
+		double desconto			 = valorTotalNota - valorFinalNota;
 		
 		System.out.println("================================================");
 		
 		System.out.printf("Quantidade Itens: 		%d  \n", produtos.size() );
 		System.out.printf("Sub Total: 			R$ %s \n",  numberFormat.format(valorTotalNota)  );
 		System.out.printf("Desconto: 			R$ %s \n", numberFormat.format(desconto) );
-		System.out.printf("Total ï¿½ Pagar: 			R$ %s \n", numberFormat.format(valorFinalNota) );
+		System.out.printf("Total à Pagar: 			R$ %s \n", numberFormat.format(valorFinalNota) );
 		System.out.printf("Tributo: 			R$ %s \n",    numberFormat.format(valorTotalTributo) );
 		
 		System.out.printf(" \n");
 		
-		System.out.printf("Forma de Pagamento: %s \n", "Cartï¿½o");
+		System.out.printf("Forma de Pagamento: %s \n", getDescricaoPagamento(codigoFormaPagamento, tipoPagamento));
 		
-		if(true) {
-			System.out.printf("Nï¿½mero de Parcelas: %d \n", 3);
-			System.out.printf("Valor das Parcelas: R$ %s \n", numberFormat.format(3));
+		if(numeroParcelas > 0 ) {
+			
+			double valorParcelas = valorFinalNota / numeroParcelas;
+			
+			System.out.printf("Número de Parcelas: %d \n", numeroParcelas);
+			System.out.printf("Valor das Parcelas: R$ %s \n", numberFormat.format(valorParcelas));
 		}
 				
 		System.out.printf("\n");
 		System.out.printf("\n");
 		System.out.printf("\n");				
 
+	}
+	
+	private static String getDescricaoPagamento(String codigoFormaPagamento, String tipo) {
+		
+		switch (codigoFormaPagamento){
+        	case "cvista":
+	            return "Cartão Avista";
+        	case "cparcelado":
+        		return "Cartão Avista";
+        	case "cpan":
+        		return "Cartão Pan";
+            case "":            	
+            	return tipo.equals("dinheiro")? "Dinheiro" : "Pix";
+            default:
+            	return "";
+		}
+		
+	}	
+	
+	private static double obterValorDesconto(String codigoFormaPagamento, double valor, int numeroParcelas) {
+				
+		switch (codigoFormaPagamento){
+	    	case "cvista":
+	            return Pagamento.creditoAVista(valor);
+	    	case "cparcelado":
+	    		return Pagamento.pagamentoParcelado(valor, numeroParcelas);
+	    	case "cpan":
+	    		return Pagamento.cartaoPan(valor, numeroParcelas);
+	        case "":            	
+	        	return Pagamento.pagamentoAVista(valor);
+	        default:
+	        	return 0.0;
+		}
+		
 	}
 
 }
