@@ -13,20 +13,6 @@ import estoque.Produto;
 
 public class NotaFiscal {
 		
-	// * Met�do criado apenas para teste	
-	public static void main(String[] args) {	
-		
-		Map<Produto, Integer> produtos = new HashMap<Produto, Integer>(); 
-		produtos.put(new Produto(1, 5.00, "teste", 1), 5);
-		produtos.put(new Produto(2, 15.00, "teste 2", 1), 2);
-		
-		
-		
-		gerarNota(produtos, "cvista", 0, "");
-			
-	}
-	// 
-	
 	private static final double IMPOSTO = 9.00;
 	
 	private static double calcularImposto(double valorTotalNota) {
