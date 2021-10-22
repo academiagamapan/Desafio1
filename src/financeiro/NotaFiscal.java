@@ -11,7 +11,7 @@ import estoque.Produto;
 
 public class NotaFiscal {
 		
-	// * Metódo criado apenas para teste	
+	// * Metï¿½do criado apenas para teste	
 	public static void main(String[] args) {
 				
 		Produto produto = new Produto();
@@ -44,6 +44,7 @@ public class NotaFiscal {
 		
 		
 	public static void gerarNota(HashMap<Produto, Integer> produtos) {
+
 		
 		DecimalFormat numberFormat = new DecimalFormat("0.00");
 		double valorTotalNota = 0.0;
@@ -57,7 +58,7 @@ public class NotaFiscal {
 		System.out.println("************************************************");
 		System.out.printf("\n");				
 		
-		System.out.println("Cod.   Descrição     Val. Uni   qt    Val. Total");
+		System.out.println("Cod.   Descriï¿½ï¿½o     Val. Uni   qt    Val. Total");
 		System.out.println("------------------------------------------------");
 		
 		for (Map.Entry<Produto, Integer> produto : produtos.entrySet()) {
@@ -85,15 +86,15 @@ public class NotaFiscal {
 		System.out.printf("Quantidade Itens: 		%d  \n", produtos.size() );
 		System.out.printf("Sub Total: 			R$ %s \n",  numberFormat.format(valorTotalNota)  );
 		System.out.printf("Desconto: 			R$ %s \n", numberFormat.format(desconto) );
-		System.out.printf("Total à Pagar: 			R$ %s \n", numberFormat.format(valorFinalNota) );
+		System.out.printf("Total ï¿½ Pagar: 			R$ %s \n", numberFormat.format(valorFinalNota) );
 		System.out.printf("Tributo: 			R$ %s \n",    numberFormat.format(valorTotalTributo) );
 		
 		System.out.printf(" \n");
 		
-		System.out.printf("Forma de Pagamento: %s \n", "Cartão");
+		System.out.printf("Forma de Pagamento: %s \n", "Cartï¿½o");
 		
 		if(true) {
-			System.out.printf("Número de Parcelas: %d \n", 3);
+			System.out.printf("Nï¿½mero de Parcelas: %d \n", 3);
 			System.out.printf("Valor das Parcelas: R$ %s \n", numberFormat.format(3));
 		}
 				
