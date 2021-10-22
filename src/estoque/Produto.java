@@ -7,6 +7,13 @@ public class Produto {
 		private String nome_produto;
 		private int qtda_produto;
 		
+		public Produto(int id_produto, double preco_produto, String nome_produto, int qtda_produto) {
+			this.id_produto = id_produto;
+			this.preco_produto = preco_produto;
+			this.nome_produto = nome_produto;
+			this.qtda_produto = qtda_produto;
+		}
+		
 		public int getId_produto() {
 			return id_produto;
 		}
@@ -30,5 +37,12 @@ public class Produto {
 		}
 		public void setQtda_produto(int qtda_produto) {
 			this.qtda_produto = qtda_produto;
+		}
+
+		@Override
+		public String toString() {
+			return "\n Nome: " + nome_produto + "\n Quantidade: " + qtda_produto;
 		}	
+		
+		
 }

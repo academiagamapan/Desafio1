@@ -17,43 +17,58 @@ public class Estoque {
 	public void setProdutos(ArrayList<Produto> produtos) {
 		this.produtos = produtos;
 	}
-
+	public void addProduto1(Produto p) {
+		this.produtos.add(p);
+	}
+	// Verificar se a lista está vazia primeiro e só depois percorrer. 
 	public void addProduto(Produto p) {
-		for (Produto itemlista : produtos) {
-			if(itemlista.getId_produto() == p.getId_produto()) {
-				itemlista.setQtda_produto(itemlista.getQtda_produto() + p.getQtda_produto());
+		for(int i = 0; i < produtos.size();i++) {
+			if(produtos.get(i).getId_produto() == p.getId_produto()) {
+				produtos.get(i).setQtda_produto(produtos.get(i).getQtda_produto() + p.getQtda_produto());
+					System.out.println(p.toString());
 			}else {
-				produtos.add(p);
+				this.produtos.add(p);
+				System.out.println("Item adicionado no estoque");
 			}
 		}
 		
 	}
 
-	public void removerProduto(int id) {
-		for (Produto p : produtos) {
-			if (p.getId_produto() == id) {
-				System.out.print("Produto:" + p.getNome_produto() +" Removido com sucesso.");
-				produtos.remove(p.getId_produto());
-			} else {
-				System.out.print("Produto não encontrado.");
+	public void removerProduto(Produto produto) {
+		for(int i = 0; i < produtos.size();i++) {
+			if(produtos.get(i).getId_produto() == produto.getId_produto()) {
+				System.out.println("Remoção: ");
+				System.out.println("Produto:" + produto.getNome_produto() +" Removido com sucesso.");
+				produtos.remove(produtos.get(i));
+			} else if(produtos.get(i).getId_produto() == produto.getId_produto()){
+				System.out.println("Produto não encontrado.");
 			}
 		}
 	}
 
-	public ArrayList<Produto> listarProduto() {
+	public void listarProduto() {
+		System.out.println("\nLista de Produtos em Estoque: ");
+		for(Produto p: produtos) {
+			System.out.println(p.toString());
+		}
+	}
+/*
+	public ArrayList<Produto> listarProduto(){
 		return produtos;
-	}
-
+	}*/
 	public void procurarProduto(int id) {
-		for (Produto p : produtos) {
-			if (p.getId_produto() == id) {
-				System.out.print(p.toString());
-			} else {
-				System.out.print("Produto não encontrado.");
+		for(int i = 0; i < produtos.size();i++) {
+			if(produtos.get(i).getId_produto() == id) {
+				System.out.println("Retorno da Pesquisa: ");
+				System.out.println(produtos.get(i).toString());
+			} else if(produtos.get(i).getId_produto() == id) {
+				System.out.println("Produto não encontrado.");
 			}
 		}
 	}
 
-	
+	public void zerarLista() {
+		produtos.clear();
+	}
 
 }
