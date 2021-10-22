@@ -11,9 +11,9 @@ public class TestesEstoque {
 		Produto camisaManUni = new Produto(1,300.0,"Camisa United",3);
 		Produto camisaManCity = new Produto(2,300.0,"Camisa City",3);
 		Produto camisaBarca = new Produto(3,300.0,"Camisa Barça",3);
-		estoque.addProduto1(camisaManCity);
-		estoque.addProduto1(camisaManUni);
-		estoque.addProduto1(camisaBarca);
+		estoque.addProduto(camisaManCity);
+		estoque.addProduto(camisaManUni);
+		estoque.addProduto(camisaBarca);
 		estoque.listarProduto();
 		estoque.removerProduto(camisaManCity);
 		camisaBarca.setQtda_produto(6);
