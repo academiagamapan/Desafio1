@@ -1,21 +1,21 @@
 package compra;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import estoque.Produto;
 import financeiro.NotaFiscal;
 
 public class Carrinho {
 
-	private List<Produto> listaCarrinho = new ArrayList<Produto>();
+	private Map<Produto, Integer> listaCarrinho = new HashMap<Produto, Integer>();
 	
 	public Carrinho() {}
 	
 	public void adicionItem(Produto produto, int quantidade) {
-		for(int i = 0; i<quantidade; i++) {
-			listaCarrinho.add(produto);			
-		}
+		listaCarrinho.put(produto, quantidade);			
 		System.out.println("você adicionou " + quantidade + " " + produto.getNome_produto() +"(s)");
 	}
 	

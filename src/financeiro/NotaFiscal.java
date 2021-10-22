@@ -17,7 +17,7 @@ public class NotaFiscal {
 	}
 		
 		
-	public static void gerarNota(List<Produto> produtos) {
+	public static void gerarNota(List<Produto> produtos) { //em vez de lista será um map <produto, int> (que será de produto e quantidade)
 		
 		double valorTotalNota = 0.0;
 				
