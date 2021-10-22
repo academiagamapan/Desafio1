@@ -1,8 +1,10 @@
 package financeiro;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +19,8 @@ public class NotaFiscal {
 		Map<Produto, Integer> produtos = new HashMap<Produto, Integer>(); 
 		produtos.put(new Produto(1, 5.00, "teste", 1), 5);
 		produtos.put(new Produto(2, 15.00, "teste 2", 1), 2);
+		
+		
 		
 		gerarNota(produtos, "cvista", 0, "");
 			
@@ -38,6 +42,7 @@ public class NotaFiscal {
 		
 		DecimalFormat numberFormat = new DecimalFormat("0.00");
 		double valorTotalNota = 0.0;
+		DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.FULL);
 				
 		System.out.println("************************************************");
 		System.out.println("**                PantsAcademy                **");
@@ -45,9 +50,10 @@ public class NotaFiscal {
 		System.out.println("**                                            **");
 		System.out.println("**                                            **");
 		System.out.println("**                                            **");
-		System.out.println("************************************************");
-		System.out.printf("\n");				
-		
+		System.out.println("************************************************");		
+		System.out.println("Data/Hora/" +  dateFormat.format(new Date()) );
+		System.out.println("================================================");
+		System.out.printf(" \n");
 		System.out.println("Cod.   Descrição     Val. Uni   qt    Val. Total");
 		System.out.println("------------------------------------------------");
 		
@@ -106,7 +112,7 @@ public class NotaFiscal {
         		return "Cartão Avista";
         	case "cpan":
         		return "Cartão Pan";
-            case "":            	
+            case "pvista":            	
             	return tipo.equals("dinheiro")? "Dinheiro" : "Pix";
             default:
             	return "";
@@ -123,7 +129,7 @@ public class NotaFiscal {
 	    		return Pagamento.pagamentoParcelado(valor, numeroParcelas);
 	    	case "cpan":
 	    		return Pagamento.cartaoPan(valor, numeroParcelas);
-	        case "":            	
+	        case "pvista":            	
 	        	return Pagamento.pagamentoAVista(valor);
 	        default:
 	        	return 0.0;
