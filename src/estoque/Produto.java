@@ -3,16 +3,16 @@ package estoque;
 public class Produto {
 
 		private int id_produto;
-		private double preco_produto;
 		private String nome_produto;
+		private double preco_produto;
 		private int qtda_produto;
 		
-		public Produto(int id_produto, double preco_produto, String nome_produto, int qtda_produto) {
-			this.id_produto = id_produto;
-			this.preco_produto = preco_produto;
-			this.nome_produto = nome_produto;
-			this.qtda_produto = qtda_produto;
-		}
+//		public Produto(int id_produto, double preco_produto, String nome_produto, int qtda_produto) {
+//			this.id_produto = id_produto;
+//			this.preco_produto = preco_produto;
+//			this.nome_produto = nome_produto;
+//			this.qtda_produto = qtda_produto; //mudar o nome do atributo para "quantidade em estoque"
+//		}
 		
 		public int getId_produto() {
 			return id_produto;
