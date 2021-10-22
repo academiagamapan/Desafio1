@@ -7,7 +7,6 @@ public class Produto {
 		private String nome_produto;
 		private int qtda_produto;
 		
-		
 		public int getId_produto() {
 			return id_produto;
 		}
