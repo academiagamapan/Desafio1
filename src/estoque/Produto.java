@@ -3,8 +3,8 @@ package estoque;
 public class Produto {
 
 		private int id_produto;
-		private double preco_produto;
 		private String nome_produto;
+		private double preco_produto;
 		private int qtda_produto;
 		
 		public int getId_produto() {
