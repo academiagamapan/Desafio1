@@ -18,8 +18,6 @@ public class Estoque {
 		this.produtos = produtos;
 	}
 
-	
-
 	// Verificar se a lista está vazia primeiro e só depois percorrer.
 	public void addProduto(Produto p) {
 		if (produtos.isEmpty()) {
