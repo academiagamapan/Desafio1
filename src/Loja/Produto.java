@@ -1,18 +1,34 @@
 package Loja;
 
 public class Produto {
-	private static int idProduto = 0;
+	
+	private static int idContador = 0;
 	private String nome;
 	private double preco;
 	private int quantidade;
+	private int idProduto;
 	
 	public Produto(String nome, double preco, int quantidade) {
 		this.nome = nome;
 		this.preco = preco;
 		this.quantidade = quantidade;
-		idProduto++;
+		this.idProduto = ++idContador;
+		
+	}
+	public Produto(int idProduto, String nome, double preco, int quantidade) {
+		this.nome = nome;
+		this.preco = preco;
+		this.quantidade = quantidade;	
+		this.idProduto = idProduto;
 	}
 	
+	public int getIdProduto() {
+		return idProduto;
+	}
+	public void setIdProduto(int id) {
+		this.idProduto = id;
+	}
+		
 	public String getNome() {
 		return nome;
 	}
@@ -32,9 +48,13 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 	
+	public void decrementarQuantidade(int quantidade) {
+		this.quantidade -= quantidade;
+	}
+	
 	@Override
 	public String toString() {;
-		return "Produto [nome =" + nome + ", preço = " + preco + ", quantidade = " + quantidade + "]";
+		return "idProduto [nome =" + nome + ", preço = " + preco + ", quantidade = " + quantidade + "]";
 	}
 }
 

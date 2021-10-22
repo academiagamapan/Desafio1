@@ -42,7 +42,20 @@ Ja na classe Loja foram implementados os métodos div(), verMenuPrincipal(), ver
  - verProdutos() - (To do) Levará para a lista de produtos disponíveis.
  - verCarrinho() - (To do) Levará para o carrinho de compras.
 
-Nos próximos encontros serão tratados os (To do) e a implementação dos métodos pagamento(), emitirNota() e cancelarProduto(). 
+Nos próximos encontros serão tratados os (To do) e a implementação dos métodos pagamento(), notaFiscal() e cancelarProduto(). 
+
+## 2º encontro em 21/11/2021
+
+Implementamos os métodos verProdutos() e verCarrinho(), que haviam ficado como (To do) no último encontro. Também foram implementadas na classe Loja os métodos:
+
+- removerProduto() - Remove produtos do carrinho de compras na quantidade desejada. Este método está substituindo o cancelarProduto().  
+- pagamento() - Leva para a tela de pagamento e, após escolha da forma de pagamente pelo usuário, faz o cálculo do valor a ser pago e valor de parcelas, caso se aplique. Em seguida chama o método notaFiscal() passando esses valores.
+- criarEstoque() - Popula o estoque da loja com valores pré-definidos.
+- notaFiscal() - (To do) Levará para tela de emissão de nota fiscal e gerará o formulário da nota fiscal da compra.
+
+Foi também ajustados os atributos da classe Produto, bem como seu contructor e alguns de seus getters e setters e criado o método decrementarQuantidade().
+Nos próximos encontros será tratado o (To do) do método notaFiscal().
+
 
 
 
