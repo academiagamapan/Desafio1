@@ -53,14 +53,6 @@ public class Produto {
 		texto += "|";
 		return texto;
 	}
-
-	public void DiminuiEstoque() {
-		
-	}
 	
-	public void RetornarEstoque() {
-		
-		
-	}
 	
 }

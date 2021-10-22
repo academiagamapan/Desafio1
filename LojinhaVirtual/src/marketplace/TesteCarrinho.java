@@ -48,20 +48,23 @@ public class TesteCarrinho {
 					codProdCliente = scan.nextInt() - 1;
 					System.out.print("Digite a quantidade desejada: ");
 					qntdProdCliente = scan.nextLong();
+					
 					//adiciona o item ao carrinho
 					precoItemProd = listaProdutos.get(codProdCliente).getPrecoProd();
 					carrinho.AddItem(new ItemCarrinho(qntdProdCliente, (qntdProdCliente * precoItemProd) , codProdCliente));				
+					
 					//diminui da quantidade de estoque de produtos
 					listaProdutos.get(codProdCliente).setQntdEstoque(listaProdutos.get(codProdCliente).getQntdEstoque() - qntdProdCliente);				
+					
 					break;
 				case 2:
 					carrinho.MenuProdutos(listaProdutos);
-					System.out.print("Digite o código do produto que deseja remover: ");
-					//remover item da lista do carrinho
+					System.out.print("Digite o código do produto que deseja remover: ");					
 					codProdCliente = scan.nextInt() - 1;
+					
+					//remover item da lista do carrinho e retorna a quantidade de produtos do estoque
 					carrinho.RemoverItemLista(listaProdutos, codProdCliente); 
-					//retorna a quantidade de produtos do estoque
-					//p.RetornarEstoque();
+					
 					break;
 				case 3:
 					p.MenuProdutos(listaProdutos);

@@ -16,7 +16,6 @@ public class Carrinho {
 	}
 	
 	public Double getPrecoTotalCarrinho() { return precoTotalCarrinho; }
-	
 	public void setPrecoTotalCarrinho(Double precoTotalCarrinho) { this.precoTotalCarrinho = precoTotalCarrinho; }
 	
 	public List<ItemCarrinho> getItem() { return item; }
