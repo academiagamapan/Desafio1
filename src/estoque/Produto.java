@@ -11,7 +11,7 @@ public class Produto {
 			this.id_produto = id_produto;
 			this.preco_produto = preco_produto;
 			this.nome_produto = nome_produto;
-			this.qtda_produto = qtda_produto;
+			this.qtda_produto = qtda_produto; //mudar o nome do atributo para "quantidade em estoque"
 		}
 		
 		public int getId_produto() {
