@@ -111,7 +111,7 @@ public class Carrinho {
 		}
 	}
 	
-	public void iniciarCompra() {
+	public void iniciarCompra()  {
 		
 		int id = -1;
 		int qntEscolhida = 0;
@@ -126,20 +126,24 @@ public class Carrinho {
 			}
 			estoque.listarProduto();
 			
-			System.out.println("> digite o id do produto e a quantidade desejada (digite 0 para concluir compra)\n");
+			System.out.println("> digite o id do produto e a quantidade desejada (digite 0 para concluir a compra)\n");
 			Scanner resposta = new Scanner(System.in);
 			
 			id = resposta.nextInt();
 			if (id == 0) break;
 			else {
 				qntEscolhida = resposta.nextInt();
-				
 				if (id != 0) {
 					for (Produto produtoEscolhido : estoque.getProdutos().keySet()) {
 						if (produtoEscolhido.getId_produto() == id) {
-							adicionaItem(produtoEscolhido, qntEscolhida);
-							estoque.removerProduto(produtoEscolhido, qntEscolhida);
-							break;
+								if(estoque.getProdutos().get(produtoEscolhido) >= qntEscolhida) {
+									adicionaItem(produtoEscolhido, qntEscolhida);
+									estoque.removerProduto(produtoEscolhido, qntEscolhida);
+									break;
+								}else {
+									System.out.println("\nProduto fora de estoque!");
+									
+								}
 						}
 					}
 				}
