@@ -119,7 +119,7 @@ public class Carrinho {
 	
 	public void limparTela() {
 		try {
-			Process process = Runtime.getRuntime().exec("clear");
+			Process process = Runtime.getRuntime().exec("cls");
 		} catch (IOException e) {
 			System.out.println("comando não suportado pelo sistema");
 		}
@@ -147,13 +147,13 @@ public class Carrinho {
 		
 		int id = -1;
 		int qntEscolhida = 0;
-		estoque.listarProduto();
+		
 		
 		while(id != 0) {
 			
-			limparTela();
+//			limparTela();
 //			estoque.listarProduto();
-			
+			estoque.listarProduto();
 			System.out.println("-----------------------------");
 			System.out.printf("> digite o id do produto e a quantidade desejada (digite 0 para concluir a compra)\n>");
 			Scanner resposta = new Scanner(System.in);
