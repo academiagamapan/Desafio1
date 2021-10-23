@@ -62,7 +62,7 @@ Conclusão do Desafio 1, implementamos a classe notaFiscal() que havia ficado co
 
 - getDateTime() - Retorna a data e horario do sistema no formato "dd/MM/yyyy HH:mm:ss" na forma de string.
 
-Foram realizadas as seguinte mudanças em relação à modelagem inicial: Será possivel acessar o carrinho de comprar a partir da liste de produtos disponiveis e vice versa.
+Fori realizada a seguinte mudança em relação à modelagem inicial: Será possivel acessar o carrinho de comprar a partir da liste de produtos disponiveis e vice versa.
 
 Por último foram formatados os formulários da aplicação utilizando-se o comando System.out.format().E discutido a forma que será apresentado o código para a turma.
 
