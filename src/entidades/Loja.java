@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Loja {
 	
-	private String nome = "PAN STORE";
+	private String nome = "GRUPO 3 - MEGA STORE";
 	private double tributo = 0.09;
 	private List<Produto> produtos = new ArrayList<>();
 	
@@ -88,7 +88,7 @@ public class Loja {
 	
 	public void pagComJuros(double valorCarrinho, int parcela) {
 		double valorTributos = valorCarrinho * this.tributo;
-		double valorJuros = valorTributos * 0.05;
+		double valorJuros = (valorCarrinho + valorTributos) * 0.03;
 		double valorTotal =  valorCarrinho + valorTributos + valorJuros;
 		double valorParcela = valorTotal / parcela;
 		
@@ -98,7 +98,7 @@ public class Loja {
 		System.out.printf("VALOR TRIBUTÁRIO:     R$%.2f %n", valorTributos);
 		System.out.printf("TOTAL DE JUROS:       R$%.2f %n", valorJuros);
 		System.out.println("DESCONTO NA COMPRA:   R$0");
-		System.out.printf("TOTAL PAGO:           R$%.2f em %d vezes de R$%.2f %n", valorCarrinho,  parcela,  valorParcela);
+		System.out.printf("TOTAL PAGO:           R$%.2f em %d vezes de R$%.2f %n", valorTotal,  parcela,  valorParcela);
 		System.out.println();
 	}
 	
