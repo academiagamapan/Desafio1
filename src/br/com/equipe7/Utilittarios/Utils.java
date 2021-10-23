@@ -1,7 +1,6 @@
 package br.com.equipe7.Utilittarios;
 
 import br.com.equipe7.Modelos.Produto;
-import net.glxn.qrgen.QRCode;
 
 import java.util.TreeSet;
 
@@ -54,7 +53,7 @@ public class Utils {
     }
 
     public static void limparTela(){
-        for (int i = 0; i < 3000; i++){
+        for (int i = 0; i < 500; i++){
             System.out.println(" ");
         }
     }

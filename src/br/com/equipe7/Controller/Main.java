@@ -18,14 +18,15 @@ public class Main {
      static Scanner sc = new Scanner(System.in);
      static String esp = "";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         cliente.setCompras(new Compra());
         menuPrincipal();
 
     }
 
-    private static void menuPrincipal() {
+    private static void menuPrincipal() throws InterruptedException {
+
         int opcao = 0;
         do {
             System.out.printf("%10s*************************************************************\n",esp);
@@ -40,7 +41,10 @@ public class Main {
 
             switch (opcao){
                 case 0: //Sair da applicação
+                    Utils.limparTela();
                     System.out.printf("%10s Volte Sempre!!",esp);
+                    Thread.sleep(2000);
+                    System.exit(0);
                     break;
                 case 1: //Mostra o estoque na Tela
                     Utils.limparTela();
@@ -54,6 +58,12 @@ public class Main {
                     break;
                 case 3: //Finaliza o processo de comprar
                     Utils.limparTela();
+                    if(cliente.getCompras().isCompraFinalizada() || cliente.getCompras().getProdutos().isEmpty()){
+                        System.out.printf("%10sCarrinho vazio!!\n",esp);
+                        Thread.sleep(2000);
+                        Utils.limparTela();
+                        menuPrincipal();
+                    }
                     MostrarCarrinho();
                     Utils.limparTela();
                     break;
@@ -81,7 +91,7 @@ public class Main {
         }while(opcao != 0);
     }
 
-    private static void comprar() {
+    private static void comprar() throws InterruptedException {
 
         int opcao = 0;
         Compra carrinho;
@@ -112,7 +122,9 @@ public class Main {
                     System.out.printf("%10s Digite a quantidade do produto que deseja comprar: ",esp);
                     int qtd = sc.nextInt();
                     if(qtd > x.getQtdEmEstoque()){ //Verifica se existe quantidade suficiente no estoque
-                        System.out.printf("%10s Não há estoque suficiente deste produto!! ",esp);
+                        System.out.printf("%10s Não há estoque suficiente deste produto!!\n ",esp);
+                        Thread.sleep(2000);
+                        Utils.limparTela();
                     }else{
                         Utils.limparTela();
                         if(cliente.getCompras().getProdutos().isEmpty()){ //Se existe produto no carrinho
@@ -178,7 +190,7 @@ public class Main {
         return null;
     }
 
-    private static void MostrarCarrinho() {
+    private static void MostrarCarrinho() throws InterruptedException {
       int opcao = 0;
 
        cliente.getCompras().setValorTotalDaCompra(calculaValorTotal());
@@ -210,9 +222,11 @@ public class Main {
             sc.nextLine();
             System.out.printf("\n");
             if(opcao != 0) {
+
                 Utils.limparTela();
                 cadastrarCliente();
                 Utils.limparTela();
+
                 switch (opcao) {
                     case 1:
                         mostrarNotaFiscal(20);
@@ -235,16 +249,16 @@ public class Main {
     private static void cadastrarCliente() {
 
         System.out.printf("%10sCADASTRO DO CLIENTE\n\n",esp);
-        System.out.printf("%10sDigite o nome do cliente:",esp);
+        System.out.printf("%10sDigite o nome do cliente: ",esp);
         String nome = sc.nextLine();
         cliente.setNome(nome);
         System.out.printf("\n");
-        System.out.printf("%10sDigite o CPF do cliente:",esp);
+        System.out.printf("%10sDigite o CPF do cliente: ",esp);
         String cpf = sc.nextLine();
         cliente.setCpf(cpf);
     }
 
-    private static void mostrarNotaFiscal(int i){
+    private static void mostrarNotaFiscal(int i) throws InterruptedException {
 
         double valorPago = 0;
         int opcao = 0;
@@ -267,7 +281,9 @@ public class Main {
                     "s%16d%s%8sR$%.2f%5sR$%.2f\n",esp,p.getCodigoDoProduto(),p.getNomeDoProduto(),p.getQtdDoPedido(),p.getUnidade(),
                     esp,p.getPrecoDoProduto(),esp,p.getPrecoDoProduto()*p.getQtdDoPedido());
         }
+
         double valorComDesconto = cliente.getCompras().getValorTotalDaCompra() - getDesconto(i);
+
         System.out.printf("\n\n");
         System.out.printf("%10sQtde total de Itens:%39s%d \n",esp,esp,cliente.getCompras().getProdutos().size());
         System.out.printf("%10sValor Total R$:%40s%-5.2f \n",esp,esp,cliente.getCompras().getValorTotalDaCompra());
@@ -288,7 +304,10 @@ public class Main {
                 System.out.printf("%10sCartão PARC%45s%.2f\n",esp,esp,valorComDesconto);
                 break;
         }
-        System.out.printf("%10sTroco R$%45s%.2f\n",esp,esp,valorPago-valorComDesconto);
+
+        if(i == 20)
+            System.out.printf("%10sTroco R$%45s%.2f\n",esp,esp,valorPago-valorComDesconto);
+
         System.out.printf("%10s************************************************************\n\n",esp);
         System.out.printf("%10s%14sConsulta pela Chave de Acesso em:%14s\n",esp,esp,esp);
         System.out.printf("%10s%11shttp://nfce.fazenda.pl.gov.br/consulta%11s\n",esp,esp,esp);
