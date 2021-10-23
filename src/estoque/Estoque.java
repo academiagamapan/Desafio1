@@ -18,31 +18,31 @@ public class Estoque {
 		this.produtos = produtos;
 	}
 
-	// Verificar se a lista está vazia primeiro e só depois percorrer.
+	// Verificar se a lista estï¿½ vazia primeiro e sï¿½ depois percorrer.
 	public void addProduto(Produto p) {
-		if (produtos.isEmpty()) {
+//		if (produtos.isEmpty()) {
 			produtos.add(p);
-		} else {
-			for (int i = 0; i < produtos.size(); i++) {
-				if (produtos.get(i).getId_produto() == p.getId_produto()) {
-					produtos.get(i).setQtda_produto(produtos.get(i).getQtda_produto() + p.getQtda_produto());
-					System.out.println(p.toString());
-				} else {
-					this.produtos.add(p);
-					System.out.println("Item adicionado no estoque");
-				}
-			}
-		}
+//		} else {
+//			for (int i = 0; i < produtos.size(); i++) {
+//				if (produtos.get(i).getId_produto() == p.getId_produto()) {
+//					produtos.get(i).setQtda_produto(produtos.get(i).getQtda_produto() + p.getQtda_produto());
+//					System.out.println(p.toString());
+//				} else {
+//					this.produtos.add(p);
+//					System.out.println("Item adicionado no estoque");
+//				}
+//			}
+//		}
 	}
 
 	public void removerProduto(Produto produto) {
 		for (int i = 0; i < produtos.size(); i++) {
 			if (produtos.get(i).getId_produto() == produto.getId_produto()) {
-				System.out.println("Remoção: ");
+				System.out.println("Remoï¿½ï¿½o: ");
 				System.out.println("Produto:" + produto.getNome_produto() + " Removido com sucesso.");
 				produtos.remove(produtos.get(i));
 			} else if (produtos.get(i).getId_produto() == produto.getId_produto()) {
-				System.out.println("Produto não encontrado.");
+				System.out.println("Produto nï¿½o encontrado.");
 			}
 		}
 	}
@@ -63,7 +63,7 @@ public class Estoque {
 				System.out.println("Retorno da Pesquisa: ");
 				System.out.println(produtos.get(i).toString());
 			} else if (produtos.get(i).getId_produto() == id) {
-				System.out.println("Produto não encontrado.");
+				System.out.println("Produto nï¿½o encontrado.");
 			}
 		}
 	}
