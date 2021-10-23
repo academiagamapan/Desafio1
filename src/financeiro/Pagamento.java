@@ -26,7 +26,7 @@ public class Pagamento {
 			return valor + acrescimo;
 		}else {
 			System.out.println("Numero de parcelas inválido!");
-			return (Double) null;
+			return 0;
 		}
 	}
 	
@@ -38,7 +38,7 @@ public class Pagamento {
 			return valor;
 		}else {
 			System.out.println("Numero de parcelas inválido!");
-			return (Double) null;
+			return 0;
 		}
 	}
 	
