@@ -118,17 +118,17 @@ public class ProgramaPrincipal {
 			entrada2 = sc.next();
 			while (!entrada2.equals("n") && !entrada2.equals("s")) {
 				System.out.print(
-						"Entrada inválida, digite 's' para continuar comprando ou 'n' para ir à sessão de pagamento: ");
+						"Entrada inválida, digite 's' para continuar comprando ou 'n' para ir à seção de pagamento: ");
 				entrada2 = sc.next();
 			}
 			System.out.println("==========================================================================================================");
 			
 		}//FIM LAÇO WHILE
 
-		// SESSÃO DE PAGAMENTO
+		// SEÇÃO DE PAGAMENTO
 		System.out.println();
 		System.out.println();
-		System.out.println("           	      ~ Sessão de pagamento " + loja.getNome() + " ~");
+		System.out.println("           	      ~ Seção de pagamento " + loja.getNome() + " ~");
 		System.out.println();
 		System.out.println("Itens no seu carrinho: ");
 		System.out.println();
@@ -192,7 +192,7 @@ public class ProgramaPrincipal {
 			loja.pagComJuros(carrinho.getValorTotal(), parcela);
 		}
 
-		System.out.println("O PAN STORE AGRADECE A PREFERÊNCIA!");
+		System.out.println("O " + loja.getNome() + " AGRADECE PELA PREFERÊNCIA!");
 		System.out.println("==========================================================================================================");
 		System.out.println();
 		sc.close();
