@@ -16,14 +16,14 @@ public class NotaFiscal {
 	// * Metï¿½do criado apenas para teste	
 	public static void main(String[] args) {	
 		
-		Map<Produto, Integer> produtos = new HashMap<Produto, Integer>(); 
-		produtos.put(new Produto(1, 5.00, "teste", 1), 5);
-		produtos.put(new Produto(2, 15.00, "teste 2", 1), 2);
+//		Map<Produto, Integer> produtos = new HashMap<Produto, Integer>(); 
+//		produtos.put(new Produto(1, 5.00, "teste", 1), 5);
+//		produtos.put(new Produto(2, 15.00, "teste 2", 1), 2);
 		
 		
 		
-		gerarNota(produtos, "cvista", 0, "");
-			
+//		gerarNota(produtos, "cvista", 0, "");
+//			
 	}
 	// 
 	
@@ -54,7 +54,7 @@ public class NotaFiscal {
 		System.out.println("Data/Hora/" +  dateFormat.format(new Date()) );
 		System.out.println("================================================");
 		System.out.printf(" \n");
-		System.out.println("Cod.   Descrição     Val. Uni   qt    Val. Total");
+		System.out.println("Cod.   Descriï¿½ï¿½o     Val. Uni   qt    Val. Total");
 		System.out.println("------------------------------------------------");
 		
 		for (Map.Entry<Produto, Integer> produto : produtos.entrySet()) {
@@ -82,7 +82,7 @@ public class NotaFiscal {
 		System.out.printf("Quantidade Itens: 		%d  \n", produtos.size() );
 		System.out.printf("Sub Total: 			R$ %s \n",  numberFormat.format(valorTotalNota)  );
 		System.out.printf("Desconto: 			R$ %s \n", numberFormat.format(desconto) );
-		System.out.printf("Total à Pagar: 			R$ %s \n", numberFormat.format(valorFinalNota) );
+		System.out.printf("Total ï¿½ Pagar: 			R$ %s \n", numberFormat.format(valorFinalNota) );
 		System.out.printf("Tributo: 			R$ %s \n",    numberFormat.format(valorTotalTributo) );
 		
 		System.out.printf(" \n");
@@ -93,7 +93,7 @@ public class NotaFiscal {
 			
 			double valorParcelas = valorFinalNota / numeroParcelas;
 			
-			System.out.printf("Número de Parcelas: %d \n", numeroParcelas);
+			System.out.printf("Nï¿½mero de Parcelas: %d \n", numeroParcelas);
 			System.out.printf("Valor das Parcelas: R$ %s \n", numberFormat.format(valorParcelas));
 		}
 				
@@ -107,11 +107,11 @@ public class NotaFiscal {
 		
 		switch (codigoFormaPagamento){
         	case "cvista":
-	            return "Cartão Avista";
+	            return "Cartï¿½o Avista";
         	case "cparcelado":
-        		return "Cartão Avista";
+        		return "Cartï¿½o Avista";
         	case "cpan":
-        		return "Cartão Pan";
+        		return "Cartï¿½o Pan";
             case "pvista":            	
             	return tipo.equals("dinheiro")? "Dinheiro" : "Pix";
             default:

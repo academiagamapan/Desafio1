@@ -7,13 +7,15 @@ public class Produto {
 		private double preco_produto;
 		private int qtda_produto;
 		
-//		public Produto(int id_produto, double preco_produto, String nome_produto, int qtda_produto) {
-//			this.id_produto = id_produto;
-//			this.preco_produto = preco_produto;
-//			this.nome_produto = nome_produto;
-//			this.qtda_produto = qtda_produto; //mudar o nome do atributo para "quantidade em estoque"
-//		}
-		
+		public Produto () {};
+
+		public Produto(int id_produto, String nome_produto, double preco_produto, int qtda_produto) {
+			super();
+			this.id_produto = id_produto;
+			this.nome_produto = nome_produto;
+			this.preco_produto = preco_produto;
+			this.qtda_produto = qtda_produto;
+		}
 		public int getId_produto() {
 			return id_produto;
 		}
