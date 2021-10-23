@@ -24,6 +24,9 @@ public class Carrinho {
 		listaCarrinho.put(produto, quantidade);
 		System.out.println("-----------------------------");
 		System.out.println("você adicionou " + quantidade + " " + produto.getNome_produto() + "(s)");
+		System.out.println("### digite qualquer coisa para continuar ###");
+		Scanner resposta = new Scanner(System.in);
+		String pausa = resposta.next();
 	}
 	
 	public Map<Produto, Integer> getListaCarrinho() {
@@ -118,11 +121,12 @@ public class Carrinho {
 	}
 	
 	public void limparTela() {
-		try {
-			Process process = Runtime.getRuntime().exec("clear");
-		} catch (IOException e) {
-			System.out.println("comando não suportado pelo sistema");
-		}
+//		try {
+//			Process process = Runtime.getRuntime().exec("clear");
+//		} catch (IOException e) {
+//			System.out.println("comando não suportado pelo sistema");
+//		}
+		for (int i = 0; i < 50; ++i) System.out.println();
 //	    System.out.print("\033[H\033[2J");  
 //	    System.out.flush(); 
 		
@@ -149,18 +153,17 @@ public class Carrinho {
 		int qntEscolhida = 0;
 //		estoque.listarProduto();
 		
-		while(id != 0) {
-			
+		do {
 			limparTela();
 			estoque.listarProduto();
 			
 			System.out.println("-----------------------------");
-			System.out.printf("> digite o id do produto e a quantidade desejada (digite 0 para concluir a compra)\n>");
+			System.out.printf("> digite o id do produto e a quantidade desejada (digite 0 para concluir a compra)\n> ");
 			Scanner resposta = new Scanner(System.in);
 			
 			id = resposta.nextInt();
 			if (id == 0) break;
-			else {
+//			else {
 				qntEscolhida = resposta.nextInt();
 				for (Produto produtoEscolhido : estoque.getProdutos().keySet()) {
 					if (produtoEscolhido.getId_produto() == id) {
@@ -173,8 +176,8 @@ public class Carrinho {
 							}
 					}
 				}
-			}
-		}
+//			}
+		}while(id != 0);
 		fecharCompra();
 	}
 
