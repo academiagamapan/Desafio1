@@ -21,7 +21,8 @@ public class Carrinho {
 	}
 	
 	public void adicionaItem(Produto produto, int quantidade) {
-		listaCarrinho.put(produto, quantidade);			
+		listaCarrinho.put(produto, quantidade);
+		System.out.println("-----------------------------");
 		System.out.println("você adicionou " + quantidade + " " + produto.getNome_produto() + "(s)");
 	}
 	
@@ -67,8 +68,6 @@ public class Carrinho {
 					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "dinheiro");
 					System.out.println("sua compra foi fechada e sua nota será gerada");
 				}
-				
-				
 				break;
 			case 2:
 				formaPagamento = "cvista";
@@ -116,14 +115,15 @@ public class Carrinho {
 		
 		int id = -1;
 		int qntEscolhida = 0;
+		estoque.listarProduto();
 		
 		while(id != 0) {
 			
 			limparTela();
-			estoque.listarProduto();
+//			estoque.listarProduto();
 			
 			System.out.println("-----------------------------");
-			System.out.println("> digite o id do produto e a quantidade desejada (digite 0 para concluir compra)\n");
+			System.out.printf("> digite o id do produto e a quantidade desejada (digite 0 para concluir compra)\n> ");
 			Scanner resposta = new Scanner(System.in);
 			
 			id = resposta.nextInt();
