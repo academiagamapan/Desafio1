@@ -71,7 +71,7 @@ Por último foram formatados os formulários da aplicação utilizando-se o coma
 Foram sanados alguns bugs e apresentado o trabalho desenvolvido para a turma.
 
 Segue uma apresentação dos trabalhos desenvolvidos.
-[![Apresentação](https://github.com/joaomhernandes/Desafio1/blob/João_Maurício/assets/Apresentação,png)](https://youtu.be/ZGikDQFwWDc)]
+[Apresentação](https://github.com/joaomhernandes/Desafio1/blob/João_Maurício/assets/Apresentação,png)](https://youtu.be/ZGikDQFwWDc)
 
 
 
