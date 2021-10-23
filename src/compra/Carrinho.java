@@ -1,7 +1,9 @@
 package compra;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -19,7 +21,8 @@ public class Carrinho {
 	}
 	
 	public void adicionaItem(Produto produto, int quantidade) {
-		listaCarrinho.put(produto, quantidade);			
+		listaCarrinho.put(produto, quantidade);
+		System.out.println("-----------------------------");
 		System.out.println("você adicionou " + quantidade + " " + produto.getNome_produto() + "(s)");
 	}
 	
@@ -65,8 +68,6 @@ public class Carrinho {
 					System.out.println("sua compra foi fechada e sua nota será gerada");
 					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "dinheiro");					
 				}
-				
-				
 				break;
 			case 2:
 				formaPagamento = "cvista";
@@ -102,28 +103,27 @@ public class Carrinho {
 	
 	public void limparTela() {
 		try {
-			Runtime.getRuntime().exec("clear");
+			Process process = Runtime.getRuntime().exec("clear");
 		} catch (IOException e) {
 			System.out.println("comando não suportado pelo sistema");
 		}
+//	    System.out.print("\033[H\033[2J");  
+//	    System.out.flush(); 
 	}
 	
 	public void iniciarCompra()  {
 		
 		int id = -1;
 		int qntEscolhida = 0;
+		estoque.listarProduto();
 		
 		while(id != 0) {
 			
-//			limparTela();
-			try {
-				Runtime.getRuntime().exec("clear");
-			} catch (IOException e) {
-				System.out.println("comando não suportado pelo sistema");
-			}
-			estoque.listarProduto();
+			limparTela();
+//			estoque.listarProduto();
 			
-			System.out.println("> digite o id do produto e a quantidade desejada (digite 0 para concluir a compra)\n");
+			System.out.println("-----------------------------");
+			System.out.printf("> digite o id do produto e a quantidade desejada (digite 0 para concluir a compra)\n>");
 			Scanner resposta = new Scanner(System.in);
 			
 			id = resposta.nextInt();
@@ -145,7 +145,6 @@ public class Carrinho {
 					}
 				}
 			}
-//			resposta.close();
 		}
 		fecharCompra();
 	}
