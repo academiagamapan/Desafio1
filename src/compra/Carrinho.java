@@ -109,6 +109,22 @@ public class Carrinho {
 		}
 //	    System.out.print("\033[H\033[2J");  
 //	    System.out.flush(); 
+		
+//        ProcessBuilder processBuilder = new ProcessBuilder();
+//        // Windows
+//        processBuilder.command("clear");
+//
+//        try {
+//            Process process = processBuilder.start();
+//            int exitCode = process.waitFor();
+////            System.out.println("\nExited with error code : " + exitCode);
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
 	}
 	
 	public void iniciarCompra()  {
