@@ -3,11 +3,6 @@ package br.com.equipe7.Utilittarios;
 import br.com.equipe7.Modelos.Produto;
 import net.glxn.qrgen.QRCode;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.util.TreeSet;
 
 public class Utils {

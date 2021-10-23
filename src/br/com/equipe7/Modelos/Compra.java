@@ -1,7 +1,6 @@
 package br.com.equipe7.Modelos;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.TreeSet;
 
 public class Compra {

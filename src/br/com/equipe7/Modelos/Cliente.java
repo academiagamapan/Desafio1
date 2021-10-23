@@ -1,10 +1,8 @@
 package br.com.equipe7.Modelos;
 
-import java.util.ArrayList;
-import java.util.List;
+import br.com.equipe7.Modelos.Compra;
 
 public class Cliente {
-
     private String nome;
     private String cpf;
     private Compra compras = new Compra();

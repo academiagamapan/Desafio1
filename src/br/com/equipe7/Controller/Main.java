@@ -217,6 +217,15 @@ public class Main {
                     case 1:
                         mostrarNotaFiscal(20);
                         break;
+                    case 2:
+                        mostrarNotaFiscal(10);
+                        break;
+                    case 3:
+                        mostrarNotaFiscal(15);
+                        break;
+                    case 4:
+                        mostrarNotaFiscal(0);
+                        break;
                 }
             }
 
