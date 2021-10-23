@@ -1,23 +1,36 @@
 package compra;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import estoque.Estoque;
 import estoque.Produto;
 import financeiro.NotaFiscal;
 
 public class Carrinho {
 
 	private Map<Produto, Integer> listaCarrinho = new HashMap<Produto, Integer>();
+	private Estoque estoque;
 	
-	public Carrinho() {}
-	
-	public void adicionItem(Produto produto, int quantidade) {
-		listaCarrinho.put(produto, quantidade);			
-		System.out.println("você adicionou " + quantidade + " " + produto.getNome_produto() +"(s)");
+	public Carrinho(Estoque estoque) {
+		this.estoque = estoque;
 	}
 	
+	public void adicionaItem(Produto produto, int quantidade) {
+		listaCarrinho.put(produto, quantidade);			
+		System.out.println("você adicionou " + quantidade + " " + produto.getNome_produto() + "(s)");
+	}
+	
+	public Map<Produto, Integer> getListaCarrinho() {
+		return listaCarrinho;
+	}
+
+	public void setListaCarrinho(Map<Produto, Integer> listaCarrinho) {
+		this.listaCarrinho = listaCarrinho;
+	}
+
 	public void removeItem(Produto produto, int quantidade) {
 		for(int i = 0; i<quantidade; i++) {
 			listaCarrinho.remove(produto);			
@@ -25,7 +38,7 @@ public class Carrinho {
 		System.out.println("você removeu " + quantidade + " " + produto.getNome_produto() +"(s)");
 	}
 
-	public void fechaCompra() {
+	public void fecharCompra() {
 		System.out.println("escolha a forma de pagamento:"); // todo- anotar vantagens dos metodos
 		System.out.println("1 - pagamento à vista (20% de desconto)");
 		System.out.println("2 - crédito à vista (10% de desconto)");
@@ -76,6 +89,44 @@ public class Carrinho {
 	public void cancelaCompra() {
 		listaCarrinho.clear();
 		System.out.println("sua compra foi cancelada, que pena :(");
+	}
+	
+	public void limparTela() {
+		try {
+			Runtime.getRuntime().exec("clear");
+		} catch (IOException e) {
+			System.out.println("comando não suportado pelo sistema");
+		}
+	}
+	
+	public void iniciarCompra() {
+		
+		int id = -1;
+		int qntEscolhida = 0;
+		
+		while(id != 0) {
+			
+			limparTela();
+			estoque.listarProduto();
+			
+			System.out.println("> digite o id do produto e a quantidade desejada (digite 0 para concluir compra)\n");
+			Scanner resposta = new Scanner(System.in);
+			
+			id = resposta.nextInt();
+			qntEscolhida = resposta.nextInt();
+			
+			if (id != 0) {
+				for (Produto produtoEscolhido : estoque.getProdutos().keySet()) {
+					if (produtoEscolhido.getId_produto() == id) {
+						adicionaItem(produtoEscolhido, qntEscolhida);
+						estoque.removerProduto(produtoEscolhido, qntEscolhida);
+						break;
+					}
+				}
+			}
+//			resposta.close();
+		}
+		fecharCompra();
 	}
 
 }
