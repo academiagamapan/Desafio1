@@ -4,8 +4,15 @@ import br.com.equipe7.Modelos.Produto;
 
 import java.util.TreeSet;
 
+/**
+ * Classe com métodos utilitários
+ */
 public class Utils {
 
+    /**
+     * Método responsável por popular o estoque.
+     * @return TreeSet
+     */
     public static TreeSet<Produto> getProdutos(){
         TreeSet<Produto> produtos = new TreeSet<>();
 
@@ -49,15 +56,55 @@ public class Utils {
         p5.setUnidade("PC");
         produtos.add(p5);
 
+        Produto p6 = new Produto();
+        p6.setCodigoDoProduto(6);
+        p6.setNomeDoProduto("Azeite");
+        p6.setPrecoDoProduto(4.55);
+        p6.setQtdEmEstoque(10);
+        p6.setUnidade("LT");
+        produtos.add(p6);
+
+        Produto p7 = new Produto();
+        p7.setCodigoDoProduto(7);
+        p7.setNomeDoProduto("Oleo");
+        p7.setPrecoDoProduto(7.33);
+        p7.setQtdEmEstoque(10);
+        p7.setUnidade("PC");
+        produtos.add(p7);
+
+        Produto p8 = new Produto();
+        p8.setCodigoDoProduto(8);
+        p8.setNomeDoProduto("Sabão");
+        p8.setPrecoDoProduto(1.99);
+        p8.setQtdEmEstoque(10);
+        p8.setUnidade("TB");
+        produtos.add(p8);
+
+        Produto p9 = new Produto();
+        p9.setCodigoDoProduto(9);
+        p9.setNomeDoProduto("Sal");
+        p9.setPrecoDoProduto(3.82);
+        p9.setQtdEmEstoque(10);
+        p9.setUnidade("PC");
+        produtos.add(p9);
+
         return produtos;
     }
 
+    /**
+     * Método responsável por limpar o console
+     */
     public static void limparTela(){
-        for (int i = 0; i < 500; i++){
+        for (int i = 0; i < 13; i++){
             System.out.println(" ");
         }
     }
 
+    /**
+     * Retorna a quantidade de caracteres de uma string
+     * @param produtos
+     * @return int
+     */
     public static int tamanhoMaiorString(TreeSet<Produto> produtos ){
         boolean primeiroValor = true;
         int maxTamanhoItem = 0;

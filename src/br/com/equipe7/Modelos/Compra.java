@@ -3,7 +3,11 @@ package br.com.equipe7.Modelos;
 import java.time.LocalDate;
 import java.util.TreeSet;
 
+/**
+ * Classe modelo de comprar (Items do carrinho)
+ */
 public class Compra {
+
     private double valorTotalDaCompra;
     private TreeSet<Produto> produtos = new TreeSet<>();
     private LocalDate data = LocalDate.now();

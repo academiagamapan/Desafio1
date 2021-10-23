@@ -1,6 +1,8 @@
 package br.com.equipe7.Modelos;
 
-
+/**
+ * Classe medelo de Produtos
+ */
 public class Produto implements Comparable<Produto>{
 
     private int codigoDoProduto;
@@ -66,7 +68,6 @@ public class Produto implements Comparable<Produto>{
     public void setUnidade(String unidade) {
         this.unidade = unidade;
     }
-
 
     @Override
     public int compareTo(Produto o) {

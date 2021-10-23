@@ -9,15 +9,22 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
+/**
+ * Classe principal
+ */
 public class Main {
 
      static Cliente cliente = new Cliente();
      static TreeSet<Produto> estoque = Utils.getProdutos();
-     static ArrayList<Compra> carrinho = new ArrayList<>();
 
      static Scanner sc = new Scanner(System.in);
      static String esp = "";
 
+    /**
+     * Chama o método menuPrincipal que encpsula toda logica da aplicação
+     * @param args
+     * @throws InterruptedException
+     */
     public static void main(String[] args) throws InterruptedException {
 
         cliente.setCompras(new Compra());
@@ -25,9 +32,14 @@ public class Main {
 
     }
 
+    /**
+     * Método responsável por mostrar o menu principal
+     * @throws InterruptedException
+     */
     private static void menuPrincipal() throws InterruptedException {
 
         int opcao = 0;
+
         do {
             System.out.printf("%10s*************************************************************\n",esp);
             System.out.printf("%10s*----------------!! SUPERMERCADO MANGUAÇA !!----------------*\n",esp);
@@ -58,6 +70,7 @@ public class Main {
                     break;
                 case 3: //Finaliza o processo de comprar
                     Utils.limparTela();
+
                     if(cliente.getCompras().isCompraFinalizada() || cliente.getCompras().getProdutos().isEmpty()){
                         System.out.printf("%10sCarrinho vazio!!\n",esp);
                         Thread.sleep(2000);
@@ -72,6 +85,9 @@ public class Main {
         }while (opcao != 0);
     }
 
+    /**
+     * Método responsável por mostrar o estoque
+     */
     private static void mostrarEstoque() {
 
         int opcao = 0;
@@ -91,6 +107,10 @@ public class Main {
         }while(opcao != 0);
     }
 
+    /**
+     * Método principal de inicialização do processo de compra
+     * @throws InterruptedException
+     */
     private static void comprar() throws InterruptedException {
 
         int opcao = 0;
@@ -113,11 +133,14 @@ public class Main {
                         p.getCodigoDoProduto(),esp,p.getNomeDoProduto(),p.getQtdEmEstoque(),esp,p.getPrecoDoProduto());
             }
             System.out.printf("%10s************************************************************\n",esp);
-            System.out.printf("%10s Digite o código do produto que deseja comprar: ",esp);
+            System.out.printf("%10s Digite o código do produto que deseja comprar: " +
+                    "(Digite 0 para voltar ao menu principal) ",esp);
             opcao = sc.nextInt();
 
             if(opcao != 0){
+
                 Produto x = pesquisaProduto(opcao);
+
                 if(x != null){ //Verifica se o produto existe
                     System.out.printf("%10s Digite a quantidade do produto que deseja comprar: ",esp);
                     int qtd = sc.nextInt();
@@ -127,7 +150,9 @@ public class Main {
                         Utils.limparTela();
                     }else{
                         Utils.limparTela();
-                        if(cliente.getCompras().getProdutos().isEmpty()){ //Se existe produto no carrinho
+
+                        if(cliente.getCompras().getProdutos().isEmpty()){ //Se não existe produto no carrinho
+
                             x.setQtdDoPedido(qtd);
                             x.setPreçoTotaldoProduto(x.getPrecoDoProduto()*qtd);
                             carrinho.getProdutos().add(x);
@@ -138,9 +163,13 @@ public class Main {
                             estoque.add(x);
 
                             cliente.setCompras(carrinho);
-                        }else{
+
+                        }else{ //Se o produto já existe no carrinho
+
                             Produto temp = pesquisaProdutoCarrinho(x, cliente.getCompras());
+
                             if(temp != null){
+
                                 carrinho.getProdutos().remove(temp);
                                 temp.setQtdDoPedido(temp.getQtdDoPedido()+qtd);
                                 temp.setPreçoTotaldoProduto(temp.getPrecoDoProduto() * temp.getQtdDoPedido());
@@ -152,7 +181,8 @@ public class Main {
                                 estoque.add(temp);
 
                                 cliente.setCompras(carrinho);
-                            }else{
+                            }else{ //Se já existe produto no carrinho mas o produto é diferente
+
                                 x.setQtdDoPedido(qtd);
                                 x.setPreçoTotaldoProduto(x.getPrecoDoProduto()*qtd);
                                 carrinho.getProdutos().add(x);
@@ -209,11 +239,11 @@ public class Main {
             System.out.printf("%10sVALOR TOTAL DO PEDIDO: R$%.2f\n", esp, cliente.getCompras().getValorTotalDaCompra());
             System.out.printf("%10s************************************************************\n\n", esp);
 
-            System.out.println("\n\n\n");
+            System.out.println("\n\n");
             System.out.printf("%10s MEIOS DE PAGAMENTOS\n\n ", esp);
             System.out.printf("%10s 1. À vista (dinheiro ou pix) tem 20%% de desconto\n ", esp);
             System.out.printf("%10s 2. À vista no crédito tem 10%% de desconto\n ", esp);
-            System.out.printf("%10s 3. Crédito a vista com cartão banco pan tem 15%% de desconto\n ", esp);
+            System.out.printf("%10s 3. Crédito a vista com cartão banco PAN tem 15%% de desconto\n ", esp);
             System.out.printf("%10s 4. Parcelado em até 3x não tem desconto\n\n ", esp);
 
             System.out.printf("%10s Digite o código do meio de pagamento que você deseja utilizar: " +
@@ -221,6 +251,7 @@ public class Main {
             opcao = sc.nextInt();
             sc.nextLine();
             System.out.printf("\n");
+
             if(opcao != 0) {
 
                 Utils.limparTela();
@@ -246,6 +277,9 @@ public class Main {
         }while (opcao != 0);
     }
 
+    /**
+     * Método para cadastro do cliente
+     */
     private static void cadastrarCliente() {
 
         System.out.printf("%10sCADASTRO DO CLIENTE\n\n",esp);
@@ -258,6 +292,11 @@ public class Main {
         cliente.setCpf(cpf);
     }
 
+    /**
+     * Método responsável por mostrar o cupom fiscal da compra
+     * @param i
+     * @throws InterruptedException
+     */
     private static void mostrarNotaFiscal(int i) throws InterruptedException {
 
         double valorPago = 0;
@@ -268,7 +307,9 @@ public class Main {
             System.out.printf("%10s Digite o valor que deseja pagar: ",esp);
             valorPago = sc.nextDouble();
         }
+
         Utils.limparTela();
+
         do{
         System.out.printf("%10s*************************************************************\n",esp);
         System.out.printf("%10s%8sCNPJ: 00.000.000/000.99 SUPERMERCADO MANGUAÇA%8s\n",esp,esp,esp);
@@ -321,11 +362,14 @@ public class Main {
 
         System.out.printf("%10sNFC-e nº 000000001  Série 001       %s      %s\n\n",esp, dataHj,
                 horaHj);
+
         double tributo = getTributo(cliente.getCompras().getValorTotalDaCompra());
+
         System.out.printf("%10s%3sTributos Totais Incidentes (Lei Federal 12.741/2012) R$%.2f\n\n",esp,esp,tributo);
             System.out.printf("%10s Digite 0 para sair: ",esp);
             opcao = sc.nextInt();
             cliente.getCompras().setCompraFinalizada(true);
+
             if(opcao == 0){
                 Utils.limparTela();
                 menuPrincipal();
@@ -333,6 +377,11 @@ public class Main {
         }while (opcao != 0);
     }
 
+    /**
+     * Método Responsável por calcular o tributo
+     * @param valorTotalDaCompra
+     * @return double
+     */
     private static double getTributo(double valorTotalDaCompra) {
         double valor = valorTotalDaCompra;
         double percentual = 9 / 100.0;
@@ -341,6 +390,11 @@ public class Main {
         return valorFinal;
     }
 
+    /**
+     * Método responsável por calcular o desconto da compra
+     * @param i
+     * @return double
+     */
     private static double getDesconto(int i) {
         double valor = cliente.getCompras().getValorTotalDaCompra();
         double percentual = i / 100.0;
@@ -349,6 +403,10 @@ public class Main {
         return valorFinal;
     }
 
+    /**
+     * Método reponsável por calcular o valor total da compra
+     * @return double
+     */
     private static double calculaValorTotal() {
         double valor = 0;
         for(Produto p : cliente.getCompras().getProdutos()){

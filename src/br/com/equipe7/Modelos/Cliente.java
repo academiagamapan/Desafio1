@@ -2,7 +2,11 @@ package br.com.equipe7.Modelos;
 
 import br.com.equipe7.Modelos.Compra;
 
+/**
+ * Classe modelo de Cliente
+ */
 public class Cliente {
+
     private String nome;
     private String cpf;
     private Compra compras = new Compra();
