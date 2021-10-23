@@ -1,42 +1,46 @@
-# Desafio 1
-Desafio do Programador Turma 1
-<img src="https://user-images.githubusercontent.com/92064386/138007193-47cac947-928e-4909-a299-0ae99b35eed9.png" width="250"/>
-<img src="https://user-images.githubusercontent.com/92064386/138007156-3ae6e393-a770-4bf7-85cb-9f9d390fb118.png" width="350"/>
+# Gama Pan Super Market
+
+## Grupo de desenvolvedores:
+
+| <a href="https://www.linkedin.com/in/brunoclaudino/" target="blank"><img style="background-color: #abc" align="center" src="https://media-exp1.licdn.com/dms/image/C4D03AQHkHiqXw0XaTQ/profile-displayphoto-shrink_800_800/0/1572375836252?e=1640217600&v=beta&t=qFbgqvzb7j4XWUMK7njC4cHtLvWifbdDXOgAPE-x1EA" height="200" width="200" /></a> | <a href="https://www.linkedin.com/in/charllyson-souza-248576108/" target="blank"><img style="background-color: #abc" align="center" src="https://ca.slack-edge.com/T02FTTBGALF-U02FYME1U9M-1d74b7b0606e-512" height="200" width="200" /></a> | <a href="https://www.linkedin.com/in/jo%C3%A3o-maur%C3%ADcio-hernandes-carrenho/" target="blank"><img style="background-color: #abc" align="center" src="https://ca.slack-edge.com/T02FTTBGALF-U02GDPHEC85-5252cc7e2654-512" height="200" width="200" /></a> | <a href="https://www.linkedin.com/in/mateus-almeida-312a27129/" target="blank"><img style="background-color: #abc" align="center" src="https://ca.slack-edge.com/T02FTTBGALF-U02GA91USA1-512e3635d450-512" height="200" width="200" /></a> | <a href="https://www.linkedin.com/in/paulo-queiroz-7048b1a0" target="blank"><img style="background-color: #abc" align="center" src="https://ca.slack-edge.com/T02FTTBGALF-U02GFCYJPBN-9868142ab62f-512" height="200" width="200" /></a> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Bruno Claudino Matias                                        | Charllyson Souza                                             | João Maurício Hernandes                                      | Mateus Barros Almeida                                        | Paulo Queiroz                                                |
+
+**Obs: **Clique nas imagens para os respectivos LinkedIns.
+
+## Sobre o Projeto
+
+<p>Este projeto foi desenvolvido como atividade de acompanhamento do curso de Java +  AWS do Gama Pan Academy, uma parceria da Gama com o Banco Pan. Os códigos aqui presente são de autoria dos desenvolvedores acima com os conhecimento dado nas aulas.
+	O projeto consiste em um modelo simples loja em que vende itens e organiza o carrinho de compras de um cliente, calcula o preço da compra e permite o cliente escolher modelo de pagamento e parcelamento. Ao fim emite no terminal uma "Nota Fiscal".
+</p>
+
+### Diagrama de Classes 
+
+Abaixo é possível ver as duas classes implementadas para a resolução do problema
+
+![](img\DiagramaClasses.png)
+
+### Diagrama de Fluxo
+
+Segue a imagem onde é possível ver a transição de estados durante a execução do código.
+
+![](img\DiagramaFluxo.png)
+
+### Organização das Pastas
+
+<p>As atividades estão organizadas em pastas separadas por dia de atividade da seguinte maneira:
 
 
-# Turma 1 👩‍💻👨‍💻🚀
-##
-Trago uma super proposta aos meus queridos Alunos 🥰.
- Hoje daremos início ao nosso primeiro projeto 😎.
+ ```
+├── GamaPanMarket
+    ├── src
+        ├── Product.java
+        └── AtividadeN.java
+    └── img
+        ├── DiagramaClasses.png
+        └── DiagramaFluxo.png
 
- Vamos criar nosso primeiro projeto, já pensando em algo real. Algo que utilizamos muito   no nosso dia a dia.
+ ```
 
- E aqui pra nós, esse projeto é um tema pedido em etapas técnicas nas seleções de            algumas empresas.
+Todos os códigos foram desenvolvidos seguindo os parâmetros passados em aula.</p>
 
-Faremos uma Loja virtual com Carrinho de Compras!!! o /
-
-Em resumo vamos buscar produtos por código, adicionar quantidades dos itens selecionados, somar os preços de diversos itens que queremos comprar e adicionar desconto dependendo da forma do pagamento.
-
-# Requisitos:
-
-A nossa loja deve conter estoque;
-Caso produto esteja indisponível deve retornar a mensagem para o cliente “Produto Indisponível”;
-Deverá ter 3 formas de pagamento: 
-À vista (dinheiro ou pix) tem 20% de desconto;
-À vista no crédito tem 10% de desconto;
-Parcelado em até 3x não tem desconto;
-Deve retornar a nota fiscal com o valor pago de tributos de 9% sobre a compra(Esse valor não deve ser somado ao total do carrinho, somente ser exibido na nota fiscal);
-Caprichem no README lá vocês podem contar como fizeram e como foi o trabalho em equipe.
-O Projeto pode ser feito somente em uma classe ou da forma que acharem melhor;
-O PROGRAMA TEM QUE RODAR NO CONSOLE.
-
-
-# Dicas:
-Tenham calma, vocês já possuem todos os conhecimentos básicos para realizar o projeto.
-Não queira ver o fluxo de todo imediato! Um passo de cada vez, primeiro resolve um ponto e depois passe para o passo seguinte.
-Não existe apenas uma resposta certa.
-Se zero de algum método ou o que ele realmente faz? Consulte o google, veja exemplos e leia documentos.
-Leia o erro que está dando no seu console ou na própria linha de comando.
-Juntem-se para trocar figurinhas.
-
-# Usem a criatividade de vocês 🚀🚀🚀🚀E contem com a gente 🧡.
