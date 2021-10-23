@@ -29,12 +29,18 @@ public class ProgramaPrincipal {
 		int qtd;
 		String entrada2 = "s";
 
+		
+		System.out.println("\t============================================================================================ \n" );
+		System.out.println("\t============================= Bem vindo ao Grupo3 - Mega Store ============================= \n" );
+		System.out.println("\t=============================  A loja das camisetas de TI :D  ============================== \n" );
+		System.out.println("\t============================================================================================ \n\n\n" );
+		
 		// ENQUANTO O USUARIO DIGITAR 's' NA entrada2 REPETE ESTE LAÇO WHILE
 		while (entrada2.equals("s")) {
-			System.out.println("           			 ~ Tabela de produtos " + loja.getNome() + " ~");
-			System.out.println();
-			System.out.println("	 Código      		Produto 	   	  	    Preço unit.(R$)        Qtd em Estoque");
-			System.out.println();
+			System.out.println("\t\t\t   	TABELA DE PRODUTOS " + loja.getNome());
+			System.out.println("\t---------+-----------------------------------------------+-----------------------+----------");
+			System.out.println("\tCODIGO \t | \t\t\tNOME  \t\t\t | \tPREÇO DE VENDA \t |   ESTOQUE");
+			System.out.println("\t---------+-----------------------------------------------+-----------------------+----------");
 
 			for (Produto produto: produtos){
 				int cod = produto.getCodigo();
@@ -43,7 +49,7 @@ public class ProgramaPrincipal {
 				int estoque = produto.getEstoque();
 				
 	           	System.out.format("%12d \t |   %-40s \t | \t R$ %.2f \t | %6d %n", cod, nome, preco, estoque);
-	           	System.out.println("\t---------+-----------------------------------------------+-----------------------+---------------");
+	           	System.out.println("\t---------+-----------------------------------------------+-----------------------+----------");
 			}
 
 			System.out.println();
@@ -61,12 +67,11 @@ public class ProgramaPrincipal {
 			for (int i = 0; i < loja.getProdutos().size(); i++) {
 				if (entrada == i) {
 					Produto produto = loja.getProdutos().get(i);
-					if (produtos.get(i).getEstoque() > 0) {
+					if (produtos.get(i).getEstoque() > 0) {                                                             //CHECA SE TEM ESTOQUE
 						System.out.print("Digite a quantidade de '" + produto.getNome() + "' que você deseja: ");
 						qtd = sc.nextInt();
 						while (qtd < 0 || qtd == 0) {
-							System.out.print("Entrada inválida ou estoque insuficiente de " + produto.getNome()
-									+ ", digite uma quantidade até " + produtos.get(i).getEstoque() + ": ");
+							System.out.print("Entrada inválida, digite uma quantidade até " + produtos.get(i).getEstoque() + ": ");
 							qtd = sc.nextInt();
 						}
 
@@ -75,6 +80,10 @@ public class ProgramaPrincipal {
 									+ " unidades disponíveis do produto '" + produto.getNome() + "'");
 							System.out.print("Deseja adicioná-los ao seu carrinho? (s/n): ");
 							String entrada3 = sc.next();
+							while (!entrada3.equals("n") && !entrada3.equals("s")) {
+								System.out.print("Entrada inválida, digite 's' para adicionar ou 'n' para não adicionar: ");
+								entrada3 = sc.next();
+							}
 							if (entrada3.equals("s")) {
 								qtd = produtos.get(i).getEstoque();
 								Item item = new Item(produto, qtd);
@@ -95,12 +104,11 @@ public class ProgramaPrincipal {
 							System.out.println(
 									"==========================================================================================================");
 							System.out.println(
-									"Você adcionou " + qtd + " unidade(s) de " + produto.getNome() + " no seu carrinho!");
+									"Você adcionou " + qtd + " unidade(s) de '" + produto.getNome() + "' no seu carrinho!");
 						}
 
 					} else {
 						System.out.println("Desculpe, estoque insuficiente de " + produto.getNome() + " no momento.");
-						;
 					}
 				}
 			}
@@ -109,12 +117,13 @@ public class ProgramaPrincipal {
 			System.out.print("Deseja adicionar mais itens no carrinho? (s/n): ");
 			entrada2 = sc.next();
 			while (!entrada2.equals("n") && !entrada2.equals("s")) {
-				System.out.println(
+				System.out.print(
 						"Entrada inválida, digite 's' para continuar comprando ou 'n' para ir à sessão de pagamento: ");
 				entrada2 = sc.next();
 			}
 			System.out.println("==========================================================================================================");
-		}
+			
+		}//FIM LAÇO WHILE
 
 		// SESSÃO DE PAGAMENTO
 		System.out.println();
@@ -124,6 +133,7 @@ public class ProgramaPrincipal {
 		System.out.println("Itens no seu carrinho: ");
 		System.out.println();
 		System.out.println("Produto 	      			 Preço unit.(R$)         Qtd no carrinho     Preço Total(R$)");
+		System.out.println();
 
 		for (Item item : carrinho.getItens()){
 		    String nome = item.getProduto().getNome();
@@ -185,18 +195,7 @@ public class ProgramaPrincipal {
 		System.out.println("O PAN STORE AGRADECE A PREFERÊNCIA!");
 		System.out.println("==========================================================================================================");
 		System.out.println();
-		
-//		System.out.print("Deseja fazer uma nova compra? (s/n): ");
-//		entrada2 = sc.next();
-//		while (!entrada2.equals("n") && !entrada2.equals("s")) {
-//			System.out.println(
-//					"Entrada inválida, digite 's' para continuar comprando ou 'n' para ir à sessão de pagamento: ");
-//			entrada2 = sc.next();
-//			if(entrada2.equals("s")) {
-//				carrinho.removeAll();
-//			}
-//		}
-//		System.out.println("===================================================================================");
-//	}
+		sc.close();
+
 	}
 }

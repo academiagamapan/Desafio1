@@ -12,10 +12,6 @@ public class Loja {
 	private double tributo = 0.09;
 	private List<Produto> produtos = new ArrayList<>();
 	
-	
-	
-	
-	
 	public String getNome() {
 		return nome;
 	}
@@ -103,7 +99,7 @@ public class Loja {
 	}
 	
 	public void notaFiscal(CarrinhoDeCompras carrinho) {
-			System.out.println("                                 ~ NOTA FISCAL ~                              ");
+			System.out.println("                                		 ~ NOTA FISCAL ~                              ");
 			System.out.println();
 			System.out.println();
 			System.out.println(this.nome);
@@ -114,13 +110,17 @@ public class Loja {
 			System.out.println(agora.format(formatter));
 			System.out.println();
 			System.out.println();
-			System.out.println("===================================================================================");
-			System.out.println("PRODUTO 	    PREÇO UNIT.(R$)         QTD PRODUTOS     PREÇO TOTAL(R$)");
-			for (Item item : carrinho.getItens()) {
-				System.out.printf("%s			%.2f			%d		  %.2f %n",
-						item.getProduto().getNome(),item.getProduto().getPreço(),item.getQuantidade(),(item.getProduto().getPreço() * item.getQuantidade()));
+			System.out.println("==========================================================================================================");
+			System.out.println("PRODUTO 	    		  	  PREÇO UNIT.(R$)         QTD PRODUTOS        PREÇO TOTAL(R$)");
+			for (Item item : carrinho.getItens()){
+			    String nome = item.getProduto().getNome();
+				double preco = item.getProduto().getPreço();
+				int qtdCarrinho =  item.getQuantidade();
+				double precoTotal = item.getProduto().getPreço() * item.getQuantidade();
+				
+	           	System.out.format("%-35s \t    R$%.2f \t  \t  	%d \t  	   R$%.2f %n", nome, preco, qtdCarrinho, precoTotal);
+	           	System.out.println("==========================================================================================================");
 			}
-			System.out.println("===================================================================================");
 			System.out.println();
 			System.out.println();
 			

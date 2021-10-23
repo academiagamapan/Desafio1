@@ -14,13 +14,6 @@ public class CarrinhoDeCompras {
 		this.itens.add(item);
 	}
 	
-	public void removeAll() {
-		for(int i = 0; i < itens.size(); i++) {
-			this.itens.remove(i);
-			System.out.println(this.itens.remove(i));
-		}
-	}
-	
 	public void somaCarrinho(Produto produto, int qtd) {
 		this.valorTotal += produto.getPreço() * qtd;
 		}
