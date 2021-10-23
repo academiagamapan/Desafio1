@@ -58,20 +58,23 @@ public class Carrinho {
 				Scanner escolhaDePagamento = new Scanner(System.in);
 				int escolha = escolhaDePagamento.nextInt();
 				if (escolha == 1) {
-					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "pix");
 					System.out.println("sua compra foi fechada e sua nota será gerada");
+					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "pix");
+					
 				}
 				if (escolha == 2) {
-					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "dinheiro");
 					System.out.println("sua compra foi fechada e sua nota será gerada");
+					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "dinheiro");
+					
 				}
 				
 				
 				break;
 			case 2:
 				formaPagamento = "cvista";
-				NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "");
 				System.out.println("sua compra foi fechada e sua nota será gerada");
+				NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "");
+				
 				break;
 			case 3:
 				formaPagamento = "cparcelado";
