@@ -1,42 +1,33 @@
-# Desafio 1
-Desafio do Programador Turma 1
-![image](https://user-images.githubusercontent.com/92064386/138007156-3ae6e393-a770-4bf7-85cb-9f9d390fb118.png)
-![image](https://user-images.githubusercontent.com/92064386/138007193-47cac947-928e-4909-a299-0ae99b35eed9.png)
+# Super Pan Store 
+## Desafio 1 da Pan Academy 🚀
+- Um curso para formar desenvolverdores Java beck-end e AWS
 
+## Objetivo
+ - Criar uma loja com estoque em que o usuário seleciona produtos do estoque e adiciona-os ao seu 
+carrinho de compras. Ao final, são mostardas as opções de pagamento e é emitida uma nota fiscal. 
+Toda interação é feita através do terminal.
 
-# Turma 1 👩‍💻👨‍💻🚀
-##
-Trago uma super proposta aos meus queridos Alunos 🥰.
- Hoje daremos início ao nosso primeiro projeto 😎.
+## Descrição dos códigos-fonte. ...SuperPanStore/src
+### Produto
+- Craiação de uma classe Produto que contém código, nome, preço e unidades disoníveis como atrtibutos;
+- Os atributos devem ser passados na contrução do objeto;
+- Os atributos podems ser alterados pelos respectivos métodos getters() e setters();
 
- Vamos criar nosso primeiro projeto, já pensando em algo real. Algo que utilizamos muito   no nosso dia a dia.
+### LojaSuperPan
+- Criação da classe LojaSuperPan que possui como atributos o carrinho e o estoque;
+- Os atributos são do tipo ArrayList de Produto;
+- O cadastramento de Produto ao estoque ou ao carrinho é feita através do método add() dentro dos respectivos getters() and setters();
+- Esta classe possui métodos para mostrar os produtos no carrinho, no estoque, fazer compras, dar boas vindas ao usuário e agradecer pela visita.
 
- E aqui pra nós, esse projeto é um tema pedido em etapas técnicas nas seleções de            algumas empresas.
+### NotaFiscal
+- Criação da classe NotaFiscal com os atributos produtos selecionados, valor total, desconto, juros e forma de pagamento;
+- Atributos são definidos pelos métodos setters(). Cada um com sua peculiaridade. Por exmplo, o método setFomrPagamento faz
+com que haja uma interação entre máuina-usuário em que o usuário é requisitado a escolher uma das formas de pagemento disponíveis;
+- A depender da forma de pagamenro selecionada, ou os juros ou o desconto é calculado através de setJuros() e setDesconto(), respectivamente;
+- Posteriomrente o valor total também é calculado via setTotalGeral();
+- A classe NotaFiscal também possui um método para imprimir a nota fiscal, mostrando o que foi comprado, o valor total e o desconto (se aplicável),
+o valor referente à impostos imbutidos (39% do valor total) e a data e hora do pagamento.
 
-Faremos uma Loja virtual com Carrinho de Compras!!! o /
-
-Em resumo vamos buscar produtos por código, adicionar quantidades dos itens selecionados, somar os preços de diversos itens que queremos comprar e adicionar desconto dependendo da forma do pagamento.
-
-# Requisitos:
-
-A nossa loja deve conter estoque;
-Caso produto esteja indisponível deve retornar a mensagem para o cliente “Produto Indisponível”;
-Deverá ter 3 formas de pagamento: 
-À vista (dinheiro ou pix) tem 20% de desconto;
-À vista no crédito tem 10% de desconto;
-Parcelado em até 3x não tem desconto;
-Deve retornar a nota fiscal com o valor pago de tributos de 9% sobre a compra(Esse valor não deve ser somado ao total do carrinho, somente ser exibido na nota fiscal);
-Caprichem no README lá vocês podem contar como fizeram e como foi o trabalho em equipe.
-O Projeto pode ser feito somente em uma classe ou da forma que acharem melhor;
-O PROGRAMA TEM QUE RODAR NO CONSOLE.
-
-
-# Dicas:
-Tenham calma, vocês já possuem todos os conhecimentos básicos para realizar o projeto.
-Não queira ver o fluxo de todo imediato! Um passo de cada vez, primeiro resolve um ponto e depois passe para o passo seguinte.
-Não existe apenas uma resposta certa.
-Se zero de algum método ou o que ele realmente faz? Consulte o google, veja exemplos e leia documentos.
-Leia o erro que está dando no seu console ou na própria linha de comando.
-Juntem-se para trocar figurinhas.
-
-# Usem a criatividade de vocês 🚀🚀🚀🚀E contem com a gente 🧡.
+### TesteSuperPanStore
+- Arquivo de testes para avaliar o funcionamento das demais classes. É nele que os objetos são instanciados e os métodos são utilizados.
+ 
