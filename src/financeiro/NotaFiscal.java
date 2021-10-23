@@ -80,6 +80,10 @@ public class NotaFiscal {
 		double valorFinalNota 	 = obterValorDesconto(codigoFormaPagamento, valorTotalNota, numeroParcelas);
 		double desconto			 = valorTotalNota - valorFinalNota;
 		
+		if(desconto <0) {
+			desconto = 0;
+		}
+		
 		System.out.println("================================================");
 		
 		System.out.printf("Quantidade Itens: 		%d  \n", produtos.size() );
