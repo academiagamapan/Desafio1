@@ -69,7 +69,7 @@ public class NotaFiscal {
 		System.out.printf("Quantidade Itens: 		%d  \n", produtos.size() );
 		System.out.printf("Sub Total: 			R$ %s \n",  numberFormat.format(valorTotalNota)  );
 		System.out.printf("Desconto: 			R$ %s \n", numberFormat.format(desconto) );
-		System.out.printf("Total à Pagar: 			R$ %s \n", numberFormat.format(valorFinalNota) );
+		System.out.printf("Total a Pagar: 			R$ %s \n", numberFormat.format(valorFinalNota) );
 		System.out.printf("Tributo: 			R$ %s \n",    numberFormat.format(valorTotalTributo) );
 		
 		System.out.printf(" \n");

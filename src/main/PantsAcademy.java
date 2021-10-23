@@ -17,7 +17,7 @@ public class PantsAcademy {
 		
 		listaDeProdutos.add(new Produto(1,"Camisa United",300.00));
 		listaDeProdutos.add(new Produto(2,"Camisa City",250.00));
-		listaDeProdutos.add(new Produto(3,"Camisa Bar�a",150.00));
+		listaDeProdutos.add(new Produto(3,"Camisa Barça",150.00));
 		listaDeProdutos.add(new Produto(4,"Camiseta", 49.00));
 		listaDeProdutos.add(new Produto(5,"Camiseta Regata", 39.00));
 		listaDeProdutos.add(new Produto(6,"Camiseta Manga Longa",69.00));
