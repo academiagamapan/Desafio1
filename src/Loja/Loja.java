@@ -80,8 +80,8 @@ public class Loja {
 			if( estoque.get(prod-1).getQuantidade() >= quantidadeRemover) {
 				Produto produto = new Produto(estoque.get(prod-1).getIdProduto(), estoque.get(prod-1).getNome(), estoque.get(prod-1).getPreco(), estoque.get(prod-1).getQuantidade());
 				produto.setQuantidade(quantidadeRemover);
-				produto.setIdProduto(carrinhoCompras.size()+1);
 				carrinhoCompras.add(produto);
+				carrinhoCompras.getLast().setIdProduto(prod);
 				estoque.get(prod-1).decrementarQuantidade(quantidadeRemover);
 				System.out.println("Produto adicionado com sucesso!Precione a tecla Enter para continuar.");
 				verProduto(in);
@@ -107,9 +107,10 @@ public class Loja {
 		
 		div("Carrinho de compras");
 		System.out.format("%2s%20s%22s%20s%20s%n", "ID", "Produto","Preço Unit.","Quantidade","Total");
-		
+		int i = 1;
 		for (Produto x : carrinhoCompras) {
-			System.out.format("%2d%20s%22.2f%20d%20.2f%n",x.getIdProduto(), x.getNome(), x.getPreco(), x.getQuantidade(), x.getPreco()*x.getQuantidade() );
+			System.out.format("%2d%20s%22.2f%20d%20.2f%n",i, x.getNome(), x.getPreco(), x.getQuantidade(), x.getPreco()*x.getQuantidade() );
+			i++;
 		}
 		
 		div("");
@@ -139,10 +140,8 @@ public class Loja {
 			int quantidadeRemover = in.nextInt();
 			
 			if( carrinhoCompras.get(prod-1).getQuantidade() >= quantidadeRemover) {
-				Produto produto = new Produto(carrinhoCompras.get(prod-1).getIdProduto(), carrinhoCompras.get(prod-1).getNome(), carrinhoCompras.get(prod-1).getPreco(), carrinhoCompras.get(prod-1).getQuantidade());
-				produto.setQuantidade(quantidadeRemover);
-				estoque.add(produto);
 				carrinhoCompras.get(prod-1).decrementarQuantidade(quantidadeRemover);
+				estoque.get(carrinhoCompras.get(prod-1).getIdProduto()-1).incrementarQuantidade(quantidadeRemover);
 				System.out.println("Produto removido com sucesso!");
 				verCarrinho(in);
 			}else {

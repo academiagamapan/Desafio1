@@ -49,7 +49,10 @@ public class Produto {
 	}
 	
 	public void decrementarQuantidade(int quantidade) {
-		this.quantidade -= quantidade;
+		this.quantidade -= quantidade;	
+	}
+	public void incrementarQuantidade(int quantidade) {
+		this.quantidade += quantidade;
 	}
 	
 	@Override
