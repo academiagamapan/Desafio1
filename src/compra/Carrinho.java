@@ -76,19 +76,35 @@ public class Carrinho {
 				break;
 			case 3:
 				formaPagamento = "cparcelado";
-				System.out.println("quantas parcelas ?");
-				Scanner parcelas = new Scanner(System.in);
-				nparcelas = parcelas.nextInt();
-				System.out.println("sua compra foi fechada e sua nota será gerada");
-				NotaFiscal.gerarNota(listaCarrinho, formaPagamento, nparcelas, "");
+				while(true) {
+					System.out.println("quantas parcelas ?");
+					Scanner parcelas = new Scanner(System.in);
+					nparcelas = parcelas.nextInt();
+				
+					if(nparcelas >= 1 && nparcelas <= 10) {
+						System.out.println("sua compra foi fechada e sua nota será gerada");
+						NotaFiscal.gerarNota(listaCarrinho, formaPagamento, nparcelas, "");
+						break;
+					}else {
+						System.out.println("Numero de parcelas inválido!");
+						
+					}
+				}
 				break;
 			case 4:
 				formaPagamento = "cpan";
-				System.out.println("quantas parcelas ?");
-				Scanner panParcelas = new Scanner(System.in);
-				nparcelas = panParcelas.nextInt();
-				System.out.println("sua compra foi fechada e sua nota será gerada");
-				NotaFiscal.gerarNota(listaCarrinho, formaPagamento, nparcelas, "");
+				while(true) {
+					System.out.println("quantas parcelas ?");
+					Scanner panParcelas = new Scanner(System.in);
+					nparcelas = panParcelas.nextInt();
+					if(nparcelas >= 1 && nparcelas <= 12) {
+						System.out.println("sua compra foi fechada e sua nota será gerada");
+						NotaFiscal.gerarNota(listaCarrinho, formaPagamento, nparcelas, "");
+						break;
+					}else {
+						System.out.println("Numero de parcelas inválido!");
+						}
+				}
 				break;
 		}
 		

@@ -21,12 +21,9 @@ public class Pagamento {
 	public static double pagamentoParcelado(double valor, int parcelas) { // acrescimo de 5% acima de 3 parcelas
 		if(parcelas >= 1 && parcelas <= 3) {
 			return valor;
-		}else if(parcelas > 3 && parcelas <= 10){
+		}else{
 			double acrescimo = jurosParcelado * valor;
 			return valor + acrescimo;
-		}else {
-			System.out.println("Numero de parcelas inválido!");
-			return (Double) null;
 		}
 	}
 	
@@ -34,11 +31,8 @@ public class Pagamento {
 		if(parcelas == 1) {
 			double desconto = descontoPan * valor;
 			return valor - desconto;
-		}else if(parcelas > 1 && parcelas <= 12) {
+		}else{
 			return valor;
-		}else {
-			System.out.println("Numero de parcelas inválido!");
-			return (Double) null;
 		}
 	}
 	
