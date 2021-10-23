@@ -66,7 +66,12 @@ Foi realizada a seguinte mudança em relação à modelagem inicial: Será possi
 
 Por último foram formatados os formulários da aplicação utilizando-se o comando System.out.format().E discutido a forma que será apresentado o código para a turma.
 
+## 4º encontro em 23/10/2021
 
+Foram sanados alguns bugs e apresentado o trabalho desenvolvido para a turma.
+
+Segue uma apresentação dos trabalhos desenvolvidos.
+![Apresentação](https://youtu.be/ZGikDQFwWDc){width="244px" height="auto"}
 
 
 
