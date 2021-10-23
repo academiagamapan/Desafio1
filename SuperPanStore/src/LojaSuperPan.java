@@ -104,9 +104,6 @@ public class LojaSuperPan {
 						comprar = entrada.next();
 					}
 				}
-				totalUnidades=0;
-				totalUnidades +=produto.getUnidadesDisponiveis();
-				
 			}
 			totalUnidades=0;
 			for(Produto produto: estoque) {
