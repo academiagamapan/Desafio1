@@ -2,7 +2,6 @@ package main;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import compra.Carrinho;
 import estoque.Estoque;
@@ -36,7 +35,6 @@ public class PantsAcademy {
 		Carrinho carrinho = new Carrinho(estoque1);
 		
 		carrinho.iniciarCompra();
-//		System.out.println(carrinho.getListaCarrinho());
 	}
 
 }
