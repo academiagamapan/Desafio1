@@ -2,6 +2,7 @@ package estoque;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +11,7 @@ public class Estoque {
 	private Map<Produto, Integer> produtos;
 
 	public Estoque() {
-		this.produtos = new HashMap<Produto, Integer>();
+		this.produtos = new LinkedHashMap<Produto, Integer>();
 	}
 
 	public Map<Produto, Integer> getProdutos() {
@@ -52,9 +53,15 @@ public class Estoque {
 	}
 
 	public void listarProduto() {
+		System.out.println("************************************************");
+		System.out.println("**                PantsAcademy                **");
+		System.out.println("**                                            **");
+		System.out.println("************************************************");
 		System.out.println("\nLista de Produtos em Estoque: ");
+		System.out.println("ID\tProduto\t\t\tQuant. Estoque");
+		System.out.println();
 		for (Produto p : produtos.keySet()) {
-			System.out.println(p.getId_produto() + " " + p.getNome_produto() + " " + produtos.get(p));
+			System.out.printf("%-7d%-20s%10d%n", p.getId_produto(), p.getNome_produto(), produtos.get(p));
 		}
 	}
 
