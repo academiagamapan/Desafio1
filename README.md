@@ -30,7 +30,7 @@ O PROGRAMA TEM QUE RODAR NO CONSOLE.
 
 # Desenvolvimento
 
-## 1º encontro em 20/11/2021
+## 1º encontro em 20/10/2021
 
 Inicialmente foi discutido e modelado o problema pelo grupo, chegando ao modelo abaixo:
 <img title="Modelo para o desafio 1" src="https://github.com/joaomhernandes/Desafio1/blob/João_Maurício/assets/modelagem.svg" alt="Modelagem do projeto" style="width: 244px, height: auto, margin-left: auto, margin-left: auto"/>
@@ -44,9 +44,9 @@ Ja na classe Loja foram implementados os métodos div(), verMenuPrincipal(), ver
 
 Nos próximos encontros serão tratados os (To do) e a implementação dos métodos pagamento(), notaFiscal() e cancelarProduto(). 
 
-## 2º encontro em 21/11/2021
+## 2º encontro em 21/10/2021
 
-Implementamos os métodos verProdutos() e verCarrinho(), que haviam ficado como (To do) no último encontro. Também foram implementadas na classe Loja os métodos:
+Foram implementados os métodos verProdutos() e verCarrinho(), que haviam ficado como (To do) no último encontro. Também foram implementadas na classe Loja os métodos:
 
 - removerProduto() - Remove produtos do carrinho de compras na quantidade desejada. Este método está substituindo o cancelarProduto().  
 - pagamento() - Leva para a tela de pagamento e, após escolha da forma de pagamente pelo usuário, faz o cálculo do valor a ser pago e valor de parcelas, caso se aplique. Em seguida chama o método notaFiscal() passando esses valores.
@@ -55,6 +55,15 @@ Implementamos os métodos verProdutos() e verCarrinho(), que haviam ficado como 
 
 Foi também ajustados os atributos da classe Produto, bem como seu contructor e alguns de seus getters e setters e criado o método decrementarQuantidade().
 Nos próximos encontros será tratado o (To do) do método notaFiscal().
+
+## 3º encontro em 22/10/2021
+
+Conclusão do Desafio 1, implementamos a classe notaFiscal() que havia ficado como (To do), também foi implementado o método:
+- getDateTime() - Retorna a data e horario do sistema no formato "dd/MM/yyyy HH:mm:ss" na forma de string.
+Por último foram formatados os formulários da aplicação utilizando-se o comando System.out.format(). E discutido a forma que será apresentado o código para a turma.
+
+
+
 
 
 

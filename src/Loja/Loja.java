@@ -1,8 +1,11 @@
 package Loja;
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.Scanner;
-import java.util.Locale;
+
 
 
 public class Loja {
@@ -14,37 +17,32 @@ public class Loja {
 		
 		Scanner in = new Scanner(System.in);
 		
-		Loja.div("Lojo grupo 6");			
 		criarEstoque(estoque);
 		verMenuPrincipal(in);
-		
-		
+			
 	}
 	
 	
 	public static void verMenuPrincipal(Scanner in) {
 		
-		div("Nome da Loja");
-		System.out.println("1 - Ver Produtos");
-		System.out.println("2 - Ver Carrinho");
-		System.out.println("0 - Sair");
+		div("Gama PAN Supermarket");
+		System.out.println("[1] - Ver Produtos");
+		System.out.println("[2] - Ver Carrinho");
+		System.out.println("[0] - Sair");
 		System.out.println("Digite a opção desejada");
 		int opcao = in.nextInt();
-		div("");
 		
-		System.out.println("\n" + opcao);
 		if (opcao == 1) {
 			verProduto(in);
 		}else if (opcao == 2) {
 			verCarrinho(in);
 		}else if(opcao == 0){
-			System.out.println("Volte sempre");
+			System.out.println("Volte sempre!");
+			System.exit(0);
 		}else {
 			System.out.println("Opção inválida");
 			verMenuPrincipal(in);
 		}
-		
-
 	}
 	
 	
@@ -65,14 +63,14 @@ public class Loja {
 	
 	public static void verProduto(Scanner in) {
 		div("Produtos disponíveis");
-		System.out.printf("ID \t\t\t Nome \t\t\t Preço Unid. \t\t\t  Quantidade%n");
+		System.out.format("%2s%20s%22s%20s%n", "ID", "Produto","Preço Unit.","Quantidade");
 		
 		for (Produto x : estoque) {
-			System.out.printf("%d \t\t\t %s \t\t\t %.2f \t\t\t  %d%n", x.getIdProduto(), x.getNome(), x.getPreco(), x.getQuantidade());
+			System.out.format("%2d%20s%22.2f%20d%n", x.getIdProduto(), x.getNome(), x.getPreco(), x.getQuantidade());
 		}
 		
 		div("");
-		System.out.println("Digite o ID do produto que deseja adicionar, ou -1 para retornar ao menu principal.");
+		System.out.println("\nDigite a opção desejada\n[ID] para adicionar produto desejado\n[0] para ir para o carrinho.\n[-1] para retornar ao menu principal.");
 		int prod = in.nextInt();
 		
 		if(prod > 0 && prod <= estoque.size()) {
@@ -92,6 +90,9 @@ public class Loja {
 					verProduto(in);				
 				}
 			
+		}else if(prod == 0) {
+			verCarrinho(in);			
+			
 		}else if(prod == -1) {
 			verMenuPrincipal(in);			
 			
@@ -105,19 +106,22 @@ public class Loja {
 	public static void verCarrinho(Scanner in) {
 		
 		div("Carrinho de compras");
-		System.out.printf("ID \t\t\t Nome \t\t\t Preço Unid. \t\t\t  Quantidade%n");
+		System.out.format("%2s%20s%22s%20s%20s%n", "ID", "Produto","Preço Unit.","Quantidade","Total");
 		
 		for (Produto x : carrinhoCompras) {
-			System.out.printf("%d \t\t\t %s \t\t\t %.2f \t\t\t  %d%n", x.getIdProduto(), x.getNome(), x.getPreco(), x.getQuantidade());
+			System.out.format("%2d%20s%22.2f%20d%20.2f%n",x.getIdProduto(), x.getNome(), x.getPreco(), x.getQuantidade(), x.getPreco()*x.getQuantidade() );
 		}
 		
-		System.out.println("Digite\n[1] para pagamento.\n[2] para remover algum produto de seu carrinho.\nOu qualquer outra tecla para retornar ao menu principal.");
+		div("");
+		System.out.println("\nDigite a opção desejada:\n[1] Para pagamento.\n[2] Para remover algum produto de seu carrinho.\n[3] Continuar comprando.\nOu qualquer outra tecla para retornar ao menu principal.");
 		int opcao = in.nextInt();
 		
 		if(opcao == 1) {
 			pagamento(in);
 		}else if(opcao == 2) {
 			removerProduto(in);
+		}else if(opcao == 3) {
+			verProduto(in);
 		}else {
 			verMenuPrincipal(in);
 		}
@@ -141,10 +145,10 @@ public class Loja {
 				carrinhoCompras.get(prod-1).decrementarQuantidade(quantidadeRemover);
 				System.out.println("Produto removido com sucesso!");
 				verCarrinho(in);
-				}else {
-					System.out.println("Quantidade inválida!");
-					verCarrinho(in);				
-				}
+			}else {
+				System.out.println("Quantidade inválida!");
+				verCarrinho(in);				
+			}
 			
 		}else {
 			System.out.println("Valor incorreto! Por Favor digite um valor entre 1 e " + carrinhoCompras.size());
@@ -164,6 +168,7 @@ public class Loja {
 		
 		div("Pagamento");
 		System.out.printf("O valor total da compra foi de R$%.2f%n", total);
+		System.out.println("\nDigite a opção desejada:");
 		System.out.println("[1]Cartão Banco PAN \n[2] PIX ou Dinheiro\n");
 		
 		int opcao = in.nextInt();
@@ -174,31 +179,59 @@ public class Loja {
 			
 			if(parcelamento == 1) {
 				total *= 0.85;
-				notaFiscal(total, parcelas);			
+				parcelas = 1;
+				notaFiscal(total, parcelas,opcao , in);			
 			}else if(parcelamento == 2) {
 				total /= 3;
 				parcelas = 3;
-				notaFiscal(total, parcelas);
+				notaFiscal(total, parcelas,opcao, in);
 			}else if(parcelamento == 3) {
-				total *= 1.015;
+				total *= 1.09344;
 				total /= 6;
 				parcelas = 6;
-				notaFiscal(total, parcelas);
+				notaFiscal(total, parcelas,opcao, in);
 			}else {
 				System.out.println("Opção inválida!");
 				pagamento(in);
 			}
 			
 		}else if(opcao == 2 ) {
-			notaFiscal(total, parcelas);
-			
+			notaFiscal(total, parcelas,opcao, in);
 		}
 	}
 			
 
-	private static void notaFiscal(double total, int parcelas) {
-		// TODO Auto-generated method stub
-		System.out.println("Imprimindo sua nota fiscal...");
+	private static void notaFiscal(double total, int parcelas, int opcao, Scanner in) {
+		div("");
+		System.out.println("Gama PAN Supermarket \nAv. dos Programadores nº6\nCNPJ: 11.123.456/0001-12");
+		System.out.println("Data da compra:" + getDateTime());
+				
+		div("Nota Fiscal");
+		
+		System.out.format("%10s%22s%20s%20s%n", "Produto","Preço Unit.","Quantidade","Total");
+		
+		for (Produto x : carrinhoCompras) {
+			System.out.format("%10s%22.2f%20d%20.2f%n", x.getNome(), x.getPreco(), x.getQuantidade(), x.getPreco()*x.getQuantidade() );		
+		}
+		if(opcao == 1) {
+		System.out.printf("%nDesconto na compra: R$ %.2f%n", total/0.85*0.15);
+		
+		}else if(opcao == 2 || opcao == 3) {
+			System.out.printf("%nValor parcelado a ser pago: %dx R$ %.2f%n", parcelas, total);
+		}
+		System.out.printf("Valor total a ser pago: R$ %.2f%n", total*parcelas);
+		System.out.printf("Valor do imposto: R$ %.2f%n", total*parcelas*0.09);
+		
+		div("");
+		System.out.println("\nDigie a opção desejada: \n[1] Retornar ao menu principal\n[2] Sair");
+		opcao=in.nextInt();
+		
+		if(opcao == 1) {
+			verMenuPrincipal(in);
+		}else {
+			System.out.println("Volte sempre!");
+			System.exit(0);
+		}
 	}
 
 
@@ -208,6 +241,12 @@ public class Loja {
 		System.out.println("=================================================================================================");
 		
 	}
-		
 
+		
+	private static String getDateTime() {
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		Date date = new Date();
+		return dateFormat.format(date);
+	}
 }
+
