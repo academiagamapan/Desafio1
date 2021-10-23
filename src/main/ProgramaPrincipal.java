@@ -17,7 +17,7 @@ public class ProgramaPrincipal {
 
 		Produto p0 = new Produto(0, "CAMISETA CTRL + ALT + DEL", 39.90, 10);
 		Produto p1 = new Produto(1, "CAMISETA AQUI TA FUNCIONANDO", 29.90, 10);
-		Produto p2 = new Produto(2, "CAMISETA ESTRANHO...", 10.5, 10);
+		Produto p2 = new Produto(2, "CAMISETA ESTRANHO...", 19.90, 10);
 		Produto p3 = new Produto(3, "CAMISETA CONFIA!", 99.90, 10);
 
 		List<Produto> produtos = loja.getProdutos();
@@ -35,9 +35,7 @@ public class ProgramaPrincipal {
 			System.out.println();
 			System.out.println("	 Código      		Produto 	   	  	    Preço unit.(R$)        Qtd em Estoque");
 			System.out.println();
-//			for (int i = 0; i < produtos.size(); i++) {
-//				System.out.println(produtos.get(i));
-//			}
+
 			for (Produto produto: produtos){
 				int cod = produto.getCodigo();
 			    String nome = produto.getNome();
@@ -57,7 +55,7 @@ public class ProgramaPrincipal {
 						"Entrada inválida, digite o código do produto que deseja para adicioná-lo ao carrinho: ");
 				entrada = sc.nextInt();
 			}
-			System.out.println("===================================================================================");
+			System.out.println("==========================================================================================================");
 
 			// FOR PARA PERCORRER DE 0 A 4 E CHECAR SE O USURÁRIO DIGITOU ALGUM DESSES CODIGOS
 			for (int i = 0; i < loja.getProdutos().size(); i++) {
@@ -84,7 +82,7 @@ public class ProgramaPrincipal {
 								carrinho.somaCarrinho(produto, qtd);
 								produtos.get(i).setEstoque(0);
 								System.out.println(
-										"===================================================================================");
+										"==========================================================================================================");
 								System.out.println(
 										"Você adcionou " + qtd + " unidade(s) de " + produto.getNome() + " no seu carrinho!");
 							}
@@ -95,7 +93,7 @@ public class ProgramaPrincipal {
 							carrinho.somaCarrinho(produto, qtd);
 							produtos.get(i).setEstoque(produtos.get(i).getEstoque() - qtd);
 							System.out.println(
-									"===================================================================================");
+									"==========================================================================================================");
 							System.out.println(
 									"Você adcionou " + qtd + " unidade(s) de " + produto.getNome() + " no seu carrinho!");
 						}
@@ -115,22 +113,26 @@ public class ProgramaPrincipal {
 						"Entrada inválida, digite 's' para continuar comprando ou 'n' para ir à sessão de pagamento: ");
 				entrada2 = sc.next();
 			}
-			System.out.println("===================================================================================");
+			System.out.println("==========================================================================================================");
 		}
 
 		// SESSÃO DE PAGAMENTO
 		System.out.println();
 		System.out.println();
-		System.out.println("           	          ~ Sessão de pagamento " + loja.getNome() + " ~");
+		System.out.println("           	      ~ Sessão de pagamento " + loja.getNome() + " ~");
 		System.out.println();
 		System.out.println("Itens no seu carrinho: ");
 		System.out.println();
-		System.out.println("Produto 	       Preço unit.(R$)         Qtd no carrinho     Preço Total(R$)");
-		for (Item item : carrinho.getItens()) {
-			System.out.printf("%s            %.2f                    %d               %.2f %n",
-					item.getProduto().getNome(), item.getProduto().getPreço(), item.getQuantidade(),
-					(item.getProduto().getPreço() * item.getQuantidade()));
-			System.out.println("===================================================================================");
+		System.out.println("Produto 	      			 Preço unit.(R$)         Qtd no carrinho     Preço Total(R$)");
+
+		for (Item item : carrinho.getItens()){
+		    String nome = item.getProduto().getNome();
+			double preco = item.getProduto().getPreço();
+			int qtdCarrinho =  item.getQuantidade();
+			double precoTotal = item.getProduto().getPreço() * item.getQuantidade();
+			
+           	System.out.format("%-35s \t    R$%.2f \t  \t  	%d \t  	   R$%.2f %n", nome, preco, qtdCarrinho, precoTotal);
+           	System.out.println("==========================================================================================================");
 		}
 
 		System.out.println();
@@ -138,8 +140,9 @@ public class ProgramaPrincipal {
 		System.out.printf("Valor total do Carrinho: R$%.2f %n", carrinho.getValorTotal());
 		System.out.print("Valor total da compra com 9% de imposto: R$");
 		System.out.printf("%.2f %n", totalComImposto);
-		System.out.println("===================================================================================");
+		System.out.println("==========================================================================================================");
 		System.out.println("Formas de pagamento: ");
+		System.out.println();
 		System.out.println("	[0] - À vista no dinheiro ou PIX (20% de desconto)");
 		System.out.println("	[1] - À vista no cartão de crédito (10% de desconto)");
 		System.out.println("	[2] - À vista no no cartão de Crédito Banco Pan (15% de desconto)");
@@ -147,7 +150,6 @@ public class ProgramaPrincipal {
 		System.out.println("	[4] - Parcelado em mais de 3x com juros");
 		System.out.println();
 		System.out.print("Digite o código da forma de pagamento: ");
-		System.out.println();
 
 		int entrada = sc.nextInt();
 		System.out.println();
@@ -155,7 +157,7 @@ public class ProgramaPrincipal {
 			System.out.print("Entrada inválida, digite o código da forma de pagamento desejada(0 a 4): ");
 			entrada = sc.nextInt();
 		}
-		System.out.println("===================================================================================");
+		System.out.println("==========================================================================================================");
 		System.out.println();
 		System.out.println();
 
@@ -181,7 +183,20 @@ public class ProgramaPrincipal {
 		}
 
 		System.out.println("O PAN STORE AGRADECE A PREFERÊNCIA!");
-		System.out.println("===================================================================================");
+		System.out.println("==========================================================================================================");
 		System.out.println();
+		
+//		System.out.print("Deseja fazer uma nova compra? (s/n): ");
+//		entrada2 = sc.next();
+//		while (!entrada2.equals("n") && !entrada2.equals("s")) {
+//			System.out.println(
+//					"Entrada inválida, digite 's' para continuar comprando ou 'n' para ir à sessão de pagamento: ");
+//			entrada2 = sc.next();
+//			if(entrada2.equals("s")) {
+//				carrinho.removeAll();
+//			}
+//		}
+//		System.out.println("===================================================================================");
+//	}
 	}
 }
