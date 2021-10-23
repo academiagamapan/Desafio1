@@ -39,7 +39,7 @@ public class Carrinho {
 	}
 
 	public void fecharCompra() {
-		System.out.println("escolha a forma de pagamento:"); // todo- anotar vantagens dos metodos
+		System.out.println("escolha a forma de pagamento:");
 		System.out.println("1 - pagamento à vista (20% de desconto)");
 		System.out.println("2 - crédito à vista (10% de desconto)");
 		System.out.println("3 - crédito parcelado (sem desconto, com juros acima de 3 parcelas)");
@@ -57,19 +57,28 @@ public class Carrinho {
 				System.out.println("2 - dinheiro ?");
 				Scanner escolhaDePagamento = new Scanner(System.in);
 				int escolha = escolhaDePagamento.nextInt();
-				if (escolha == 1) NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "pix");
-				if (escolha == 2) NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "dinheiro");
+				if (escolha == 1) {
+					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "pix");
+					System.out.println("sua compra foi fechada e sua nota será gerada");
+				}
+				if (escolha == 2) {
+					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "dinheiro");
+					System.out.println("sua compra foi fechada e sua nota será gerada");
+				}
+				
 				
 				break;
 			case 2:
 				formaPagamento = "cvista";
 				NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "");
+				System.out.println("sua compra foi fechada e sua nota será gerada");
 				break;
 			case 3:
 				formaPagamento = "cparcelado";
 				System.out.println("quantas parcelas ?");
 				Scanner parcelas = new Scanner(System.in);
 				nparcelas = parcelas.nextInt();
+				System.out.println("sua compra foi fechada e sua nota será gerada");
 				NotaFiscal.gerarNota(listaCarrinho, formaPagamento, nparcelas, "");
 				break;
 			case 4:
@@ -77,13 +86,13 @@ public class Carrinho {
 				System.out.println("quantas parcelas ?");
 				Scanner panParcelas = new Scanner(System.in);
 				nparcelas = panParcelas.nextInt();
+				System.out.println("sua compra foi fechada e sua nota será gerada");
 				NotaFiscal.gerarNota(listaCarrinho, formaPagamento, nparcelas, "");
 				break;
 		}
 		
 		pagamento.close();
 		
-		System.out.println("sua compra foi fechada e sua nota será gerada");
 	}
 	
 	public void cancelaCompra() {
@@ -106,21 +115,29 @@ public class Carrinho {
 		
 		while(id != 0) {
 			
-			limparTela();
+//			limparTela();
+			try {
+				Runtime.getRuntime().exec("clear");
+			} catch (IOException e) {
+				System.out.println("comando não suportado pelo sistema");
+			}
 			estoque.listarProduto();
 			
 			System.out.println("> digite o id do produto e a quantidade desejada (digite 0 para concluir compra)\n");
 			Scanner resposta = new Scanner(System.in);
 			
 			id = resposta.nextInt();
-			qntEscolhida = resposta.nextInt();
-			
-			if (id != 0) {
-				for (Produto produtoEscolhido : estoque.getProdutos().keySet()) {
-					if (produtoEscolhido.getId_produto() == id) {
-						adicionaItem(produtoEscolhido, qntEscolhida);
-						estoque.removerProduto(produtoEscolhido, qntEscolhida);
-						break;
+			if (id == 0) break;
+			else {
+				qntEscolhida = resposta.nextInt();
+				
+				if (id != 0) {
+					for (Produto produtoEscolhido : estoque.getProdutos().keySet()) {
+						if (produtoEscolhido.getId_produto() == id) {
+							adicionaItem(produtoEscolhido, qntEscolhida);
+							estoque.removerProduto(produtoEscolhido, qntEscolhida);
+							break;
+						}
 					}
 				}
 			}
