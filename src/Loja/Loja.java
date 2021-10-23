@@ -180,16 +180,16 @@ public class Loja {
 			if(parcelamento == 1) {
 				total *= 0.85;
 				parcelas = 1;
-				notaFiscal(total, parcelas,opcao , in);			
+				notaFiscal(total, parcelas, parcelamento , in);			
 			}else if(parcelamento == 2) {
 				total /= 3;
 				parcelas = 3;
-				notaFiscal(total, parcelas,opcao, in);
+				notaFiscal(total, parcelas, parcelamento, in);
 			}else if(parcelamento == 3) {
 				total *= 1.09344;
 				total /= 6;
 				parcelas = 6;
-				notaFiscal(total, parcelas,opcao, in);
+				notaFiscal(total, parcelas, parcelamento, in);
 			}else {
 				System.out.println("Opção inválida!");
 				pagamento(in);
