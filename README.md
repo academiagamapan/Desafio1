@@ -71,8 +71,7 @@ Por último foram formatados os formulários da aplicação utilizando-se o coma
 Foram sanados alguns bugs e apresentado o trabalho desenvolvido para a turma.
 
 Segue uma apresentação dos trabalhos desenvolvidos.
-![Apresentação](https://youtu.be/ZGikDQFwWDc){width="244px" height="auto"}
-
+![](https://youtu.be/ZGikDQFwWDc)
 
 
 
