@@ -2,34 +2,14 @@ package financeiro;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import estoque.Produto;
 
 public class NotaFiscal {
 		
-// <<<<<<< carmo
-// =======
-// 	// * Met�do criado apenas para teste	
-// 	public static void main(String[] args) {	
-		
-// //		Map<Produto, Integer> produtos = new HashMap<Produto, Integer>(); 
-// //		produtos.put(new Produto(1, 5.00, "teste", 1), 5);
-// //		produtos.put(new Produto(2, 15.00, "teste 2", 1), 2);
-		
-		
-		
-// //		gerarNota(produtos, "cvista", 0, "");
-// //			
-// 	}
-// 	// 
-	
-// >>>>>>> main
 	private static final double IMPOSTO = 9.00;
 	
 	private static double calcularImposto(double valorTotalNota) {
@@ -45,7 +25,7 @@ public class NotaFiscal {
 		
 		DecimalFormat numberFormat = new DecimalFormat("0.00");
 		double valorTotalNota = 0.0;
-		DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.FULL);
+		DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.FULL, new Locale ("pt", "BR"));
 				
 		System.out.println("************************************************");
 		System.out.println("**                PantsAcademy                **");
@@ -57,7 +37,7 @@ public class NotaFiscal {
 		System.out.println("Data/Hora/" +  dateFormat.format(new Date()) );
 		System.out.println("================================================");
 		System.out.printf(" \n");
-		System.out.println("Cod.   Descri��o     Val. Uni   qt    Val. Total");
+		System.out.println("Cod.   Descrição     Val. Uni   qt    Val. Total");
 		System.out.println("------------------------------------------------");
 		
 		for (Map.Entry<Produto, Integer> produto : produtos.entrySet()) {
@@ -80,12 +60,16 @@ public class NotaFiscal {
 		double valorFinalNota 	 = obterValorDesconto(codigoFormaPagamento, valorTotalNota, numeroParcelas);
 		double desconto			 = valorTotalNota - valorFinalNota;
 		
+		if(desconto <0) {
+			desconto = 0;
+		}
+		
 		System.out.println("================================================");
 		
 		System.out.printf("Quantidade Itens: 		%d  \n", produtos.size() );
 		System.out.printf("Sub Total: 			R$ %s \n",  numberFormat.format(valorTotalNota)  );
 		System.out.printf("Desconto: 			R$ %s \n", numberFormat.format(desconto) );
-		System.out.printf("Total � Pagar: 			R$ %s \n", numberFormat.format(valorFinalNota) );
+		System.out.printf("Total à Pagar: 			R$ %s \n", numberFormat.format(valorFinalNota) );
 		System.out.printf("Tributo: 			R$ %s \n",    numberFormat.format(valorTotalTributo) );
 		
 		System.out.printf(" \n");
@@ -96,13 +80,16 @@ public class NotaFiscal {
 			
 			double valorParcelas = valorFinalNota / numeroParcelas;
 			
-			System.out.printf("N�mero de Parcelas: %d \n", numeroParcelas);
+			System.out.printf("Número de Parcelas: %d \n", numeroParcelas);
 			System.out.printf("Valor das Parcelas: R$ %s \n", numberFormat.format(valorParcelas));
 		}
 				
 		System.out.printf("\n");
 		System.out.printf("\n");
-		System.out.printf("\n");				
+		System.out.printf("\n");		
+		
+	 
+		
 
 	}
 	
@@ -110,11 +97,11 @@ public class NotaFiscal {
 		
 		switch (codigoFormaPagamento){
         	case "cvista":
-	            return "Cart�o Avista";
+	            return "Cartão Avista";
         	case "cparcelado":
-        		return "Cart�o Avista";
+        		return "Cartão Avista";
         	case "cpan":
-        		return "Cart�o Pan";
+        		return "Cartão Pan";
             case "pvista":            	
             	return tipo.equals("dinheiro")? "Dinheiro" : "Pix";
             default:
