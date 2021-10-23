@@ -210,7 +210,9 @@ public class Loja {
 		System.out.format("%10s%22s%20s%20s%n", "Produto","Preço Unit.","Quantidade","Total");
 		
 		for (Produto x : carrinhoCompras) {
-			System.out.format("%10s%22.2f%20d%20.2f%n", x.getNome(), x.getPreco(), x.getQuantidade(), x.getPreco()*x.getQuantidade() );		
+			if(x.getQuantidade() != 0) {
+				System.out.format("%10s%22.2f%20d%20.2f%n", x.getNome(), x.getPreco(), x.getQuantidade(), x.getPreco()*x.getQuantidade() );
+			}
 		}
 		if(opcao == 1) {
 		System.out.printf("%nDesconto na compra: R$ %.2f%n", total/0.85*0.15);
