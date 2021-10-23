@@ -61,18 +61,18 @@ public class Carrinho {
 				Scanner escolhaDePagamento = new Scanner(System.in);
 				int escolha = escolhaDePagamento.nextInt();
 				if (escolha == 1) {
-					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "pix");
 					System.out.println("sua compra foi fechada e sua nota será gerada");
+					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "pix");					
 				}
 				if (escolha == 2) {
-					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "dinheiro");
 					System.out.println("sua compra foi fechada e sua nota será gerada");
+					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "dinheiro");					
 				}
 				break;
 			case 2:
 				formaPagamento = "cvista";
-				NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "");
 				System.out.println("sua compra foi fechada e sua nota será gerada");
+				NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "");				
 				break;
 			case 3:
 				formaPagamento = "cparcelado";
@@ -111,7 +111,7 @@ public class Carrinho {
 //	    System.out.flush(); 
 	}
 	
-	public void iniciarCompra() {
+	public void iniciarCompra()  {
 		
 		int id = -1;
 		int qntEscolhida = 0;
@@ -123,21 +123,25 @@ public class Carrinho {
 //			estoque.listarProduto();
 			
 			System.out.println("-----------------------------");
-			System.out.printf("> digite o id do produto e a quantidade desejada (digite 0 para concluir compra)\n> ");
+			System.out.printf("> digite o id do produto e a quantidade desejada (digite 0 para concluir a compra)\n>");
 			Scanner resposta = new Scanner(System.in);
 			
 			id = resposta.nextInt();
 			if (id == 0) break;
 			else {
 				qntEscolhida = resposta.nextInt();
-//				List<Produto> lista = new ArrayList<Produto>(estoque.getProdutos().keySet());
-//				System.out.println(lista);
-				for (Produto produtoEscolhido : estoque.getProdutos().keySet()) {
-					if (produtoEscolhido.getId_produto() == id) {
-						adicionaItem(produtoEscolhido, qntEscolhida);
-						estoque.removerProduto(produtoEscolhido, qntEscolhida);
-						
-						break;
+				if (id != 0) {
+					for (Produto produtoEscolhido : estoque.getProdutos().keySet()) {
+						if (produtoEscolhido.getId_produto() == id) {
+								if(estoque.getProdutos().get(produtoEscolhido) >= qntEscolhida) {
+									adicionaItem(produtoEscolhido, qntEscolhida);
+									estoque.removerProduto(produtoEscolhido, qntEscolhida);
+									break;
+								}else {
+									System.out.println("\nProduto fora de estoque!");
+									
+								}
+						}
 					}
 				}
 			}
