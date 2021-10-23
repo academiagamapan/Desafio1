@@ -61,7 +61,8 @@ public class LojaSuperPan {
 		System.out.println("Gostaria de iniciar as compras? S/N");
 		String comprar = entrada.next();
 		System.out.println(comprar);
-		while(comprar.equals("s") || comprar.equals("S")) {
+		int totalUnidades=1;
+		while((comprar.equals("s") || comprar.equals("S")) && totalUnidades > 0) {
 			mostraEstoque();
 			System.out.println("Digite o código do produto que deseja adicionar ao seu carrinho de compras:");
 			int codigo= entrada.nextInt();
@@ -90,6 +91,9 @@ public class LojaSuperPan {
 							sucesso(produtoCar);
 							System.out.println("Gostaria de comprar outro produto? S/N");
 							comprar = entrada.next();
+						}else {
+							System.out.println("Gostaria de comprar outro produto? S/N");
+							comprar = entrada.next();
 						}
 					}else {
 						Produto produtoCar = new Produto(codigo,produto.getNome(),produto.getValorUnitario(),unidades);
@@ -100,6 +104,18 @@ public class LojaSuperPan {
 						comprar = entrada.next();
 					}
 				}
+				totalUnidades=0;
+				totalUnidades +=produto.getUnidadesDisponiveis();
+				
+			}
+			totalUnidades=0;
+			for(Produto produto: estoque) {
+				totalUnidades +=produto.getUnidadesDisponiveis();
+			}
+			if(totalUnidades == 0) {
+				System.out.println("----------------------------------------------------------------------------\n");
+				System.out.println("------------ Desculpe. Todo nosso estoque de produtos se esgotou!-----------\n");
+				System.out.println("----------------------------------------------------------------------------\n\n");
 			}
 		}
 //		entrada.close();
