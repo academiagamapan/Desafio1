@@ -1,4 +1,4 @@
-![Readme.png](https://www.imagemhost.com.br/images/2021/10/24/Readme.png)
+![Readmef0a2906b06413141.png](https://www.imagemhost.com.br/images/2021/10/24/Readmef0a2906b06413141.png)
 ### Proposta do desafio:
 
 Faremos uma Loja virtual com Carrinho de Compras!!! o/
