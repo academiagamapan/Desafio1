@@ -27,22 +27,29 @@ Primeiro foi definido que utilizariamos o paradigma KISS (Keep it Simple, Stupid
 ### Screenshots 
 
 Menu Principal
+
 ![Captura-de-Tela-2021-10-24-as-00.25.26.png](https://www.imagemhost.com.br/images/2021/10/24/Captura-de-Tela-2021-10-24-as-00.25.26.png)
 
 Mostrando o Estoque
+
 ![Captura-de-Tela-2021-10-24-as-00.33.53.png](https://www.imagemhost.com.br/images/2021/10/24/Captura-de-Tela-2021-10-24-as-00.33.53.png)
 
 Realizando Compra
+
 ![Captura-de-Tela-2021-10-24-as-00.35.24.png](https://www.imagemhost.com.br/images/2021/10/24/Captura-de-Tela-2021-10-24-as-00.35.24.png)
 
 Mostrando o carrinho
+
 ![Captura-de-Tela-2021-10-24-as-00.36.37.png](https://www.imagemhost.com.br/images/2021/10/24/Captura-de-Tela-2021-10-24-as-00.36.37.png)
 
 Finalizando Compra
+
 - Cadastro de Clientes
+
 ![Captura-de-Tela-2021-10-24-as-00.37.24.png](https://www.imagemhost.com.br/images/2021/10/24/Captura-de-Tela-2021-10-24-as-00.37.24.png)
 
 Nota Fiscal
+
 ![Captura-de-Tela-2021-10-24-as-00.37.47.png](https://www.imagemhost.com.br/images/2021/10/24/Captura-de-Tela-2021-10-24-as-00.37.47.png)
 
 ### Conclusões Finais
