@@ -1,23 +1,8 @@
-# Desafio 1
-Desafio do Programador Turma 1
-<img src="https://user-images.githubusercontent.com/92064386/138007193-47cac947-928e-4909-a299-0ae99b35eed9.png" width="250"/>
-<img src="https://user-images.githubusercontent.com/92064386/138007156-3ae6e393-a770-4bf7-85cb-9f9d390fb118.png" width="350"/>
+# Desafio do Programador Turma 1
 
+Esse projeto buscou desenvolver a mentalidade lógica e treinar assuntos de nível iniciante do Java, além de aprimorar as nossas softskills que foram essenciais para esse projeto. Criamos uma loja virtual de camisetas de TI, com carrinho de compras e que apresenta uma nota fiscal no console.
 
-# Turma 1 👩‍💻👨‍💻🚀
-##
-Trago uma super proposta aos meus queridos Alunos 🥰.
- Hoje daremos início ao nosso primeiro projeto 😎.
-
- Vamos criar nosso primeiro projeto, já pensando em algo real. Algo que utilizamos muito   no nosso dia a dia.
-
- E aqui pra nós, esse projeto é um tema pedido em etapas técnicas nas seleções de            algumas empresas.
-
-Faremos uma Loja virtual com Carrinho de Compras!!! o /
-
-Em resumo vamos buscar produtos por código, adicionar quantidades dos itens selecionados, somar os preços de diversos itens que queremos comprar e adicionar desconto dependendo da forma do pagamento.
-
-# Requisitos:
+### 📋 Pré-requisitos do projeto
 
 A nossa loja deve conter estoque;
 Caso produto esteja indisponível deve retornar a mensagem para o cliente “Produto Indisponível”;
@@ -29,14 +14,30 @@ Deve retornar a nota fiscal com o valor pago de tributos de 9% sobre a compra(Es
 Caprichem no README lá vocês podem contar como fizeram e como foi o trabalho em equipe.
 O Projeto pode ser feito somente em uma classe ou da forma que acharem melhor;
 O PROGRAMA TEM QUE RODAR NO CONSOLE.
+<p align="center">
+<img src=https://github.com/oneyottabyte/Desafio1/blob/main/console.gif/>
+</p>
+ 
+## 🛠️ Construído com
 
+Usamos o Eclipse como IDE. A internet foi essencial. Buscamos varias fontes para aprimorar nosso código e por isso esse projeto trouxe um grande aprendizado. 
+No pacote main temos a classe principal, onde colocamos os produtos e também nossa "tela inicial". Usamos outro pacote para colocar todas as outras classes: Produto, Item, Loja e CarrinhoDeCompras. A classe Loja colocamos as formas de pagamento e a impressão da nota fiscal no console. A classe CarrinhoDeCompras usa uma ArrayList<> para adicionar os itens. A classse Item serve para colocar produtos no carrinho e a classe Produto é usada para instaciarmos os produtos.
 
-# Dicas:
-Tenham calma, vocês já possuem todos os conhecimentos básicos para realizar o projeto.
-Não queira ver o fluxo de todo imediato! Um passo de cada vez, primeiro resolve um ponto e depois passe para o passo seguinte.
-Não existe apenas uma resposta certa.
-Se zero de algum método ou o que ele realmente faz? Consulte o google, veja exemplos e leia documentos.
-Leia o erro que está dando no seu console ou na própria linha de comando.
-Juntem-se para trocar figurinhas.
+## ✒️ Autores
 
-# Usem a criatividade de vocês 🚀🚀🚀🚀E contem com a gente 🧡.
+Nosso primeiro desafio podemos dizer que foi um sucesso, devido a boa interação da equipe. Cada um fez um código a parte e isso possibilitou nosso projeto ter várias abordagens. No final juntamos as melhores partes. Os integrantes do grupo 3:
+
+* **Jader** - *Lógica da Nota fiscal e Criação do nome da loja* - [Jader Greiner](https://github.com/jadergreiner)
+* **Pedro** - *Lógica principal* - [Pedro Henrique](https://github.com/PedroHenriquebc)
+* **Dorian** - *Formatações no console e Lógica* - [Dorian Vieira](https://github.com/oneyottabyte)
+* **Vitor** - *Lógica principal* - [Vitor Pirovani](https://github.com/vitor-pirovani-paixao)
+
+## 🎁 Expressões de gratidão
+
+* Obrigado Banco Pan e Gama Project por esse aprendizado!:punch::punch:
+* Obrigado Jenifer, Ana e Jonathan, nossos queridos professores! 🤓
+* Conte a outras pessoas sobre este projeto 📢
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/92064386/138007193-47cac947-928e-4909-a299-0ae99b35eed9.png" width="200"/> <img src="https://user-images.githubusercontent.com/92064386/138007156-3ae6e393-a770-4bf7-85cb-9f9d390fb118.png" width="350"/>
+ </p>
