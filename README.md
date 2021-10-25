@@ -10,7 +10,7 @@ Toda interação é feita através do terminal.
 ## Descrição dos códigos-fonte. ...SuperPanStore/src
 ### Produto
 - Criação de uma classe Produto que contém código, nome, preço e unidades disoníveis como atributos;
-- Os atributos devem ser passados na contrução do objeto;
+- Os atributos devem ser passados na construção do objeto;
 - Os atributos podem ser alterados pelos respectivos métodos getters() e setters();
 
 ### LojaSuperPan
@@ -21,11 +21,11 @@ Toda interação é feita através do terminal.
 
 ### NotaFiscal
 - Criação da classe NotaFiscal com os atributos produtos selecionados, valor total, desconto, juros e forma de pagamento;
-- Atributos são definidos pelos métodos setters(). Cada um com sua peculiaridade. Por exmplo, o método setFomrPagamento faz
+- Atributos são definidos pelos métodos setters(). Cada um com sua peculiaridade. Por exemplo, o método setFomaPagamento() faz
 com que haja uma interação entre máquina-usuário em que o usuário é requisitado a escolher uma das formas de pagemento disponíveis;
 - A depender da forma de pagamento selecionada, ou os juros ou o desconto é calculado através de setJuros() e setDesconto(), respectivamente;
 - Posteriormente o valor total também é calculado via setTotalGeral();
-- A classe NotaFiscal também possui um método para imprimir a nota fiscal, mostrando o que foi comprado, o valor total e o desconto (se aplicável),
+- A classe NotaFiscal também possui um método para imprimir a nota fiscal, mostrando no termial o que foi comprado, o valor total e o desconto (se aplicável),
 o valor referente à impostos imbutidos (39% do valor total) e a data e hora do pagamento.
 
 ### TesteSuperPanStore
