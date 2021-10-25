@@ -9,8 +9,8 @@ Tabela de conteúdos
 <!--ts-->
    * [Sobre](#sobre)
    * [Integrantes](#integrantes)
-   * [Diagrama de classe](#diagrama de classe)
-   * [Diagrama de atividades](#c)
+   * [Diagrama de Classes](#diagrama-de-classes)
+   * [Diagrama de Atividades](#c)
    * [Tecnologias](#tecnologias)
    * [Registros](#registros)
    * [Agradecimentos](#agradecimentos)
@@ -49,7 +49,11 @@ Tecnologias utilizadas: [imagem java]
 
 O projeto foi dividido inicialmente em duas classes, Loja e Produto, com uma série de atributos e métodos para funcionamento do sistema.
 
+<img src="https://github.com/mateusMBA/Desafio1/blob/main/img/diagrama_classes.png" alt="diagramaDeClasse" align="center"/>
 
+# Diagrama de Atividades
+
+<img src="https://github.com/mateusMBA/Desafio1/blob/main/img/diagrama_atividades.png" alt="diagramaDeClasse" align="center"/>
 
 Trago uma super proposta aos meus queridos Alunos 🥰.
  Hoje daremos início ao nosso primeiro projeto 😎.
