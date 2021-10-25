@@ -24,6 +24,9 @@ public class Carrinho {
 		listaCarrinho.put(produto, quantidade);
 		System.out.println("-----------------------------");
 		System.out.println("você adicionou " + quantidade + " " + produto.getNome_produto() + "(s)");
+		System.out.println("### digite qualquer coisa para continuar ###");
+		Scanner resposta = new Scanner(System.in);
+		String pausa = resposta.next();
 	}
 	
 	public Map<Produto, Integer> getListaCarrinho() {
@@ -118,11 +121,19 @@ public class Carrinho {
 	}
 	
 	public void limparTela() {
+
 		try {
 			Process process = Runtime.getRuntime().exec("cls");
 		} catch (IOException e) {
 			System.out.println("comando não suportado pelo sistema");
 		}
+
+//		try {
+//			Process process = Runtime.getRuntime().exec("clear");
+//		} catch (IOException e) {
+//			System.out.println("comando não suportado pelo sistema");
+//		}
+		for (int i = 0; i < 50; ++i) System.out.println();
 //	    System.out.print("\033[H\033[2J");  
 //	    System.out.flush(); 
 		
@@ -147,37 +158,35 @@ public class Carrinho {
 		
 		int id = -1;
 		int qntEscolhida = 0;
+
+//		estoque.listarProduto();
 		
-		
-		while(id != 0) {
-			
-//			limparTela();
-//			estoque.listarProduto();
+		do {
+			limparTela();
 			estoque.listarProduto();
+			
+
 			System.out.println("-----------------------------");
-			System.out.printf("> digite o id do produto e a quantidade desejada (digite 0 para concluir a compra)\n>");
+			System.out.printf("> digite o id do produto e a quantidade desejada (digite 0 para concluir a compra)\n> ");
 			Scanner resposta = new Scanner(System.in);
 			
 			id = resposta.nextInt();
 			if (id == 0) break;
-			else {
+//			else {
 				qntEscolhida = resposta.nextInt();
-				if (id != 0) {
-					for (Produto produtoEscolhido : estoque.getProdutos().keySet()) {
-						if (produtoEscolhido.getId_produto() == id) {
-								if(estoque.getProdutos().get(produtoEscolhido) >= qntEscolhida) {
-									adicionaItem(produtoEscolhido, qntEscolhida);
-									estoque.removerProduto(produtoEscolhido, qntEscolhida);
-									break;
-								}else {
-									System.out.println("\nProduto fora de estoque!");
-									
-								}
-						}
+				for (Produto produtoEscolhido : estoque.getProdutos().keySet()) {
+					if (produtoEscolhido.getId_produto() == id) {
+							if(estoque.getProdutos().get(produtoEscolhido) >= qntEscolhida) {
+								adicionaItem(produtoEscolhido, qntEscolhida);
+								estoque.removerProduto(produtoEscolhido, qntEscolhida);
+								break;
+							} else {
+								System.out.println("\nProduto fora de estoque!");
+							}
 					}
 				}
-			}
-		}
+//			}
+		}while(id != 0);
 		fecharCompra();
 	}
 
