@@ -1,11 +1,56 @@
-# Desafio 1
-Desafio do Programador Turma 1
-![image](https://user-images.githubusercontent.com/92064386/138007156-3ae6e393-a770-4bf7-85cb-9f9d390fb118.png)
-![image](https://user-images.githubusercontent.com/92064386/138007193-47cac947-928e-4909-a299-0ae99b35eed9.png)
+<h1 align="center">Desafior do Programador 1 - Gama PAN Supermarket</h1>
 
 
-# Turma 1 👩‍💻👨‍💻🚀
-##
+Projeto de loja virtual para um supermecado realizado como primeiro desafio do programador da Turma 1 do
+Bootcamp Pan Academy
+
+Tabela de conteúdos
+=================
+<!--ts-->
+   * [Sobre](#sobre)
+   * [Integrantes](#integrantes)
+   * [Diagrama de classe](#diagrama de classe)
+   * [Diagrama de atividades](#c)
+   * [Tecnologias](#tecnologias)
+   * [Registros](#registros)
+   * [Agradecimentos](#agradecimentos)
+<!--te-->
+
+
+
+# Sobre
+
+O projeto consiste na criação de uma loja virtual para um supermecado, executada no console, com o intuito de solidificar os conteúdos adquiridos nas semanas iniciais do Bootcamp Pan Academy, oferecido pela Gama Academy em parceria com o Banco PAN.
+
+Para isso foram abordados.
+
+<!--ts-->
+   * Lógica de Programação em Java
+   * Estruturas Condicionais
+   * Estruturas de repetição
+   * Orientação à objetos
+   * Collections
+<!--te-->
+
+Tecnologias utilizadas: [imagem java]
+
+# Integrantes
+
+<!--ts-->
+   * [Bruno Claudino](https://github.com/brunoclaudino)
+   * [Charllyson Souza](https://github.com/charllysonsouza)
+   * [João Carrenho](https://github.com/joaomhernandes)
+   * [Mateus Almeida](https://github.com/mateusMBA)
+   * [Paulo Queiroz](https://github.com/hawkkawa?tab=repositories)
+
+<!--te-->
+
+# Diagrama de Classes
+
+O projeto foi dividido inicialmente em duas classes, Loja e Produto, com uma série de atributos e métodos para funcionamento do sistema.
+
+
+
 Trago uma super proposta aos meus queridos Alunos 🥰.
  Hoje daremos início ao nosso primeiro projeto 😎.
 
@@ -31,7 +76,7 @@ O Projeto pode ser feito somente em uma classe ou da forma que acharem melhor;
 O PROGRAMA TEM QUE RODAR NO CONSOLE.
 
 
-# Dicas:
+# Tecnologias:
 Tenham calma, vocês já possuem todos os conhecimentos básicos para realizar o projeto.
 Não queira ver o fluxo de todo imediato! Um passo de cada vez, primeiro resolve um ponto e depois passe para o passo seguinte.
 Não existe apenas uma resposta certa.
@@ -40,3 +85,6 @@ Leia o erro que está dando no seu console ou na própria linha de comando.
 Juntem-se para trocar figurinhas.
 
 # Usem a criatividade de vocês 🚀🚀🚀🚀E contem com a gente 🧡.
+
+![image](https://user-images.githubusercontent.com/92064386/138007156-3ae6e393-a770-4bf7-85cb-9f9d390fb118.png)
+![image](https://user-images.githubusercontent.com/92064386/138007193-47cac947-928e-4909-a299-0ae99b35eed9.png)
