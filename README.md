@@ -9,7 +9,7 @@ Toda interação é feita através do terminal.
 
 ## Descrição dos códigos-fonte. ...SuperPanStore/src
 ### Produto
-- Craiação de uma classe Produto que contém código, nome, preço e unidades disoníveis como atributos;
+- Criação de uma classe Produto que contém código, nome, preço e unidades disoníveis como atributos;
 - Os atributos devem ser passados na contrução do objeto;
 - Os atributos podem ser alterados pelos respectivos métodos getters() e setters();
 
