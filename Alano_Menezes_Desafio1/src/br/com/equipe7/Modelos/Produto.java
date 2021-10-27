@@ -8,7 +8,7 @@ public class Produto implements Comparable<Produto>{
     private int qtdDoPedido;
     private String nomeDoProduto;
     private double precoDoProduto;
-    private double preÃ§oTotaldoProduto;
+    private double preçoTotaldoProduto;
     private String unidade;
 
     public int getCodigoDoProduto() {
@@ -51,12 +51,12 @@ public class Produto implements Comparable<Produto>{
         this.qtdDoPedido = qtdDoPedido;
     }
 
-    public double getPreÃ§oTotaldoProduto() {
-        return preÃ§oTotaldoProduto;
+    public double getPreçoTotaldoProduto() {
+        return preçoTotaldoProduto;
     }
 
-    public void setPreÃ§oTotaldoProduto(double preÃ§oTotaldoProduto) {
-        this.preÃ§oTotaldoProduto = preÃ§oTotaldoProduto;
+    public void setPreçoTotaldoProduto(double preçoTotaldoProduto) {
+        this.preçoTotaldoProduto = preçoTotaldoProduto;
     }
 
     public String getUnidade() {

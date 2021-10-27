@@ -36,11 +36,11 @@ public class Main {
             System.out.printf("%10s*%10s2.%5sComprar%34s*\n",esp,esp,esp,esp);
             System.out.printf("%10s*%10s3.%5sCarrinho%33s*\n",esp,esp,esp,esp);
             System.out.printf("%10s*************************************************************\n",esp);
-            System.out.printf("%10s Digite uma op√ß√£o 1-3, Digite 0 para sair: ",esp);
+            System.out.printf("%10s Digite uma opÁ„o 1-3, Digite 0 para sair: ",esp);
             opcao = sc.nextInt();
 
             switch (opcao){
-                case 0: //Sair da applica√ß√£o
+                case 0: //Sair da applicaÁ„o
                     Utils.limparTela();
                     System.out.printf("%10s Volte Sempre!!",esp);
                     Thread.sleep(2000);
@@ -80,7 +80,7 @@ public class Main {
             System.out.printf("%10s************************************************************\n",esp);
             System.out.printf("%10s*-----------------------!! ESTOQUE !!----------------------*\n",esp);
             System.out.printf("%10s************************************************************\n",esp);
-            System.out.printf("%15s%5sC√ìD%5sDescri√ß√£o%5sQTD%5sPRE√áO\n\n",esp,esp,esp,esp,esp);
+            System.out.printf("%15s%5sC√ìD%5sDescriÁ„o%5sQTD%5sPRE√áO\n\n",esp,esp,esp,esp,esp);
             for(Produto p : estoque){
                 System.out.printf("%15s%5s%d%8s%"+Utils.tamanhoMaiorString(estoque)+"s%9d%6sR$%.2f\n",esp,esp,
                         p.getCodigoDoProduto(),esp,p.getNomeDoProduto(),p.getQtdEmEstoque(),esp,p.getPrecoDoProduto());
@@ -107,13 +107,13 @@ public class Main {
             System.out.printf("%10s************************************************************\n",esp);
             System.out.printf("%10s*-----------------------!! ESTOQUE !!----------------------*\n",esp);
             System.out.printf("%10s************************************************************\n",esp);
-            System.out.printf("%15s%5sC√ìD%5sDescri√ß√£o%5sQTD%5sPRE√áO\n\n",esp,esp,esp,esp,esp);
+            System.out.printf("%15s%5sC√ìD%5sDescriÁ„o%5sQTD%5sPRE√áO\n\n",esp,esp,esp,esp,esp);
             for(Produto p : estoque){
                 System.out.printf("%15s%5s%d%8s%"+Utils.tamanhoMaiorString(estoque)+"s%9d%6sR$%.2f\n",esp,esp,
                         p.getCodigoDoProduto(),esp,p.getNomeDoProduto(),p.getQtdEmEstoque(),esp,p.getPrecoDoProduto());
             }
             System.out.printf("%10s************************************************************\n",esp);
-            System.out.printf("%10s Digite o c√≥digo do produto que deseja comprar: ",esp);
+            System.out.printf("%10s Digite o cÛdigo do produto que deseja comprar: ",esp);
             opcao = sc.nextInt();
 
             if(opcao != 0){
@@ -122,14 +122,14 @@ public class Main {
                     System.out.printf("%10s Digite a quantidade do produto que deseja comprar: ",esp);
                     int qtd = sc.nextInt();
                     if(qtd > x.getQtdEmEstoque()){ //Verifica se existe quantidade suficiente no estoque
-                        System.out.printf("%10s N√£o h√° estoque suficiente deste produto!!\n ",esp);
+                        System.out.printf("%10s N„o h√° estoque suficiente deste produto!!\n ",esp);
                         Thread.sleep(2000);
                         Utils.limparTela();
                     }else{
                         Utils.limparTela();
                         if(cliente.getCompras().getProdutos().isEmpty()){ //Se existe produto no carrinho
                             x.setQtdDoPedido(qtd);
-                            x.setPre√ßoTotaldoProduto(x.getPrecoDoProduto()*qtd);
+                            x.setPreÁoTotaldoProduto(x.getPrecoDoProduto()*qtd);
                             carrinho.getProdutos().add(x);
 
                             //Atualizar estoque
@@ -143,7 +143,7 @@ public class Main {
                             if(temp != null){
                                 carrinho.getProdutos().remove(temp);
                                 temp.setQtdDoPedido(temp.getQtdDoPedido()+qtd);
-                                temp.setPre√ßoTotaldoProduto(temp.getPrecoDoProduto() * temp.getQtdDoPedido());
+                                temp.setPreÁoTotaldoProduto(temp.getPrecoDoProduto() * temp.getQtdDoPedido());
                                 carrinho.getProdutos().add(temp);
 
                                 //Atualizar estoque
@@ -154,7 +154,7 @@ public class Main {
                                 cliente.setCompras(carrinho);
                             }else{
                                 x.setQtdDoPedido(qtd);
-                                x.setPre√ßoTotaldoProduto(x.getPrecoDoProduto()*qtd);
+                                x.setPreÁoTotaldoProduto(x.getPrecoDoProduto()*qtd);
                                 carrinho.getProdutos().add(x);
 
                                 //Atualizar estoque
@@ -199,7 +199,7 @@ public class Main {
             System.out.printf("%10s************************************************************\n", esp);
             System.out.printf("%10s*-----------------------!! CARRINHO !!---------------------*\n", esp);
             System.out.printf("%10s************************************************************\n", esp);
-            System.out.printf("%15s%5sC√ìD%5sDescri√ß√£o%5sQTD%5sPRE√áO\n\n", esp, esp, esp, esp, esp);
+            System.out.printf("%15s%5sC√ìD%5sDescriÁ„o%5sQTD%5sPRE√áO\n\n", esp, esp, esp, esp, esp);
             for (Produto p : cliente.getCompras().getProdutos()) {
                 System.out.printf("%15s%5s%d%8s%" + Utils.tamanhoMaiorString(estoque) + "s%9d%6sR$%.2f\n", esp, esp,
                         p.getCodigoDoProduto(), esp, p.getNomeDoProduto(), p.getQtdDoPedido(), esp,
@@ -213,10 +213,10 @@ public class Main {
             System.out.printf("%10s MEIOS DE PAGAMENTOS\n\n ", esp);
             System.out.printf("%10s 1. √Ä vista (dinheiro ou pix) tem 20%% de desconto\n ", esp);
             System.out.printf("%10s 2. √Ä vista no cr√©dito tem 10%% de desconto\n ", esp);
-            System.out.printf("%10s 3. Cr√©dito a vista com cart√£o banco pan tem 15%% de desconto\n ", esp);
-            System.out.printf("%10s 4. Parcelado em at√© 3x n√£o tem desconto\n\n ", esp);
+            System.out.printf("%10s 3. Cr√©dito a vista com cart„o banco pan tem 15%% de desconto\n ", esp);
+            System.out.printf("%10s 4. Parcelado em at√© 3x n„o tem desconto\n\n ", esp);
 
-            System.out.printf("%10s Digite o c√≥digo do meio de pagamento que voc√™ deseja utilizar: " +
+            System.out.printf("%10s Digite o cÛdigo do meio de pagamento que voc√™ deseja utilizar: " +
                     "(Digite 0 para voltar ao menu principal) ", esp);
             opcao = sc.nextInt();
             sc.nextLine();
@@ -275,7 +275,7 @@ public class Main {
         System.out.printf("%10s%7sRua Tapaxanas, 069, Centro, Pindamonhangapio-PL%7s\n",esp,esp,esp);
         System.out.printf("%10s%1sDocumento Auxiliar da Nota Fiscal do Consumidor Eletronica%2s\n",esp,esp,esp);
         System.out.printf("%10s************************************************************\n\n",esp);
-        System.out.printf("%10sC√≥digo%3sDescri√ß√£o%10sQTD e UN%5sVl Unit%5sVl Total\n",esp,esp,esp,esp,esp);
+        System.out.printf("%10sCÛdigo%3sDescriÁ„o%10sQTD e UN%5sVl Unit%5sVl Total\n",esp,esp,esp,esp,esp);
         for(Produto p : cliente.getCompras().getProdutos()){
             System.out.printf("%10s%-10d%"+Utils.tamanhoMaiorString(cliente.getCompras().getProdutos())+
                     "s%16d%s%8sR$%.2f%5sR$%.2f\n",esp,p.getCodigoDoProduto(),p.getNomeDoProduto(),p.getQtdDoPedido(),p.getUnidade(),
@@ -295,13 +295,13 @@ public class Main {
                 System.out.printf("%10sDinheiro%45s%.2f\n",esp,esp,valorPago);
                 break;
             case 10:
-                System.out.printf("%10sCart√£o%45s%.2f\n",esp,esp,valorComDesconto);
+                System.out.printf("%10sCart„o%45s%.2f\n",esp,esp,valorComDesconto);
                 break;
             case 15:
-                System.out.printf("%10sCart√£o PAN%45s%.2f\n",esp,esp,valorComDesconto);
+                System.out.printf("%10sCart„o PAN%45s%.2f\n",esp,esp,valorComDesconto);
                 break;
             case 0:
-                System.out.printf("%10sCart√£o PARC%45s%.2f\n",esp,esp,valorComDesconto);
+                System.out.printf("%10sCart„o PARC%45s%.2f\n",esp,esp,valorComDesconto);
                 break;
         }
 
@@ -352,7 +352,7 @@ public class Main {
     private static double calculaValorTotal() {
         double valor = 0;
         for(Produto p : cliente.getCompras().getProdutos()){
-            valor += p.getPre√ßoTotaldoProduto();
+            valor += p.getPreÁoTotaldoProduto();
         }
         return valor;
     }
