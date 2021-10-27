@@ -12,7 +12,7 @@ Criar um projeto pensando em algo real. Algo que utilizamos muito  no nosso dia 
 Uma Loja virtual com Carrinho de Compras!  
 
 Em resumo vamos buscar produtos por código, adicionar quantidades dos itens selecionados, somar os preços de diversos itens que queremos comprar e adicionar desconto dependendo da forma do pagamento.  
-  
+
 &nbsp;  
 &nbsp;  
 
@@ -47,12 +47,6 @@ A loja possui:
 &nbsp;  
 &nbsp;  
 
-## 🚧 Features em desenvolvimento 🚧
+## 📌GIF do projeto  em execução
 
-- [	] Remoção de itens do carrinho
-
-- [	] Reutilização do automática do console
-
-- [	] Limitar a quantidade de parcelas
-
-- [	] Limpeza automática do console?
+![](C:\Users\pedro\Desktop\PAN Academy\Desafio1.gif)
