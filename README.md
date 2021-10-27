@@ -5,12 +5,14 @@
 # Turma 1 - Grupo 6 👩‍💻👨‍💻🚀
 
 # Integrantes
- :--------- | :------ | :-------
-   Bruno Claudino | <a href="https://github.com/brunoclaudino" target="_blank"><img src="https://img.shields.io/github/followers/brunoclaudino?style=social" target="_blank"></a> | <a href="https://www.linkedin.com/in/brunoclaudino/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
-   Charllyson Souza | <a href="https://github.com/charllysonsouza" target="_blank"><img src="https://img.shields.io/github/followers/charllysonsouza?style=social" target="_blank"></a> | <a href="https://www.linkedin.com/in/charllyson-souza-248576108/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
-   João M H Carrenho | <a href="https://github.com/joaomhernandes" target="_blank"><img src="https://img.shields.io/github/followers/joaomhernandes?style=social" target="_blank"></a> | <a href="https://www.linkedin.com/in/joão-maurício-hernandes-carrenho/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
-   Mateus Almeida | <a href="https://github.com/mateusMBA" target="_blank"><img src="https://img.shields.io/github/followers/mateusMBA?style=social" target="_blank"></a> | <a href="https://www.linkedin.com/in/mateus-almeida-312a27129/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
-   Paulo Queiroz | <a href="https://github.com/hawkkawa" target="_blank"><img src="https://img.shields.io/github/followers/hawkkawa?style=social" target="_blank"></a> | <a href="https://www.linkedin.com/in/paulo-queiroz-7048b1a0" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
+
+Participante | Linkedin | Github
+:--------- | :------ | :-------
+Bruno Claudino | <a href="https://www.linkedin.com/in/brunoclaudino/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>  | <a href="https://github.com/brunoclaudino" target="_blank"><img src="https://img.shields.io/github/followers/brunoclaudino?style=social" target="_blank"></a>
+Charllyson Souza | <a href="https://www.linkedin.com/in/charllyson-souza-248576108/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> | <a href="https://github.com/charllysonsouza" target="_blank"><img src="https://img.shields.io/github/followers/charllysonsouza?style=social" target="_blank"></a> 
+João M H Carrenho | <a href="https://www.linkedin.com/in/joão-maurício-hernandes-carrenho/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> | <a href="https://github.com/joaomhernandes" target="_blank"><img src="https://img.shields.io/github/followers/joaomhernandes?style=social" target="_blank"></a> 
+Mateus Almeida | <a href="https://www.linkedin.com/in/mateus-almeida-312a27129/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> | <a href="https://github.com/mateusMBA" target="_blank"><img src="https://img.shields.io/github/followers/mateusMBA?style=social" target="_blank"></a> 
+Paulo Queiroz | <a href="https://www.linkedin.com/in/paulo-queiroz-7048b1a0" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> | <a href="https://github.com/hawkkawa" target="_blank"><img src="https://img.shields.io/github/followers/hawkkawa?style=social" target="_blank"></a> 
 
 ## Apresentação do desafio
 
