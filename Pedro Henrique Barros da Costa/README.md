@@ -48,5 +48,6 @@ A loja possui:
 &nbsp;  
 
 ## 📌GIF do projeto  em execução
+![Desafio1](https://user-images.githubusercontent.com/69095292/139067265-ea4b420e-3307-433d-b0be-8675bd78fba8.gif)
 
-![](C:\Users\pedro\Desktop\PAN Academy\Desafio1.gif)
+
