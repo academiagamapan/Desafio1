@@ -29,7 +29,7 @@ O projeto consiste na criação de uma loja virtual para um supermecado, executa
    * Collections
 <!--te-->
 
-**Tecnologias utilizadas**: <img src="https://github.com/mateusMBA/Desafio1/blob/main/img/java_icon.png" alt="imgJava" height="30px" width="30px"/>
+**Tecnologias utilizadas**: <img src="https://github.com/mateusMBA/Desafio1/blob/main/mateus_almeida/img/java_icon.png" alt="imgJava" height="30px" width="30px"/>
 
 # Integrantes
 
@@ -50,13 +50,13 @@ Para iniciar o projeto, executar a função main na classe Loja.
 
 O projeto foi dividido inicialmente em duas classes, Loja e Produto, com uma série de atributos e métodos para funcionamento do sistema.
 
-<img src="https://github.com/mateusMBA/Desafio1/blob/main/img/diagrama_classes.png" alt="diagramaDeClasse" align="center"/>
+<img src="https://github.com/mateusMBA/Desafio1/blob/main/mateus_almeida/img/diagrama_classes.png" alt="diagramaDeClasse" align="center"/>
 
 # Diagrama de Atividades
 
 O diagrama a seguir exibe todos os fluxos de atividades possíveis dentro do sistema. Ele é iniciado no Menu Princiapl e pode ser encerrado através do mesmo ou após Emitir Nota.
 
-<img src="https://github.com/mateusMBA/Desafio1/blob/main/img/diagrama_atividades.png" alt="diagramaDeClasse" align="center"/>
+<img src="https://github.com/mateusMBA/Desafio1/blob/main/mateus_almeida/img/diagrama_atividades.png" alt="diagramaDeClasse" align="center"/>
 
 # Agradecimentos
 
