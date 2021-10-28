@@ -1,7 +1,9 @@
 package compra;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -19,8 +21,12 @@ public class Carrinho {
 	}
 	
 	public void adicionaItem(Produto produto, int quantidade) {
-		listaCarrinho.put(produto, quantidade);			
+		listaCarrinho.put(produto, quantidade);
+		System.out.println("-----------------------------");
 		System.out.println("você adicionou " + quantidade + " " + produto.getNome_produto() + "(s)");
+		System.out.println("### digite qualquer coisa para continuar ###");
+		Scanner resposta = new Scanner(System.in);
+		String pausa = resposta.next();
 	}
 	
 	public Map<Produto, Integer> getListaCarrinho() {
@@ -59,38 +65,49 @@ public class Carrinho {
 				int escolha = escolhaDePagamento.nextInt();
 				if (escolha == 1) {
 					System.out.println("sua compra foi fechada e sua nota será gerada");
-					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "pix");
-					
+					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "pix");					
 				}
 				if (escolha == 2) {
 					System.out.println("sua compra foi fechada e sua nota será gerada");
-					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "dinheiro");
-					
+					NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "dinheiro");					
 				}
-				
-				
 				break;
 			case 2:
 				formaPagamento = "cvista";
 				System.out.println("sua compra foi fechada e sua nota será gerada");
-				NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "");
-				
+				NotaFiscal.gerarNota(listaCarrinho, formaPagamento, 0, "");				
 				break;
 			case 3:
 				formaPagamento = "cparcelado";
-				System.out.println("quantas parcelas ?");
-				Scanner parcelas = new Scanner(System.in);
-				nparcelas = parcelas.nextInt();
-				System.out.println("sua compra foi fechada e sua nota será gerada");
-				NotaFiscal.gerarNota(listaCarrinho, formaPagamento, nparcelas, "");
+				while(true) {
+					System.out.println("quantas parcelas ?");
+					Scanner parcelas = new Scanner(System.in);
+					nparcelas = parcelas.nextInt();
+				
+					if(nparcelas >= 1 && nparcelas <= 10) {
+						System.out.println("sua compra foi fechada e sua nota será gerada");
+						NotaFiscal.gerarNota(listaCarrinho, formaPagamento, nparcelas, "");
+						break;
+					}else {
+						System.out.println("Numero de parcelas inválido!");
+						
+					}
+				}
 				break;
 			case 4:
 				formaPagamento = "cpan";
-				System.out.println("quantas parcelas ?");
-				Scanner panParcelas = new Scanner(System.in);
-				nparcelas = panParcelas.nextInt();
-				System.out.println("sua compra foi fechada e sua nota será gerada");
-				NotaFiscal.gerarNota(listaCarrinho, formaPagamento, nparcelas, "");
+				while(true) {
+					System.out.println("quantas parcelas ?");
+					Scanner panParcelas = new Scanner(System.in);
+					nparcelas = panParcelas.nextInt();
+					if(nparcelas >= 1 && nparcelas <= 12) {
+						System.out.println("sua compra foi fechada e sua nota será gerada");
+						NotaFiscal.gerarNota(listaCarrinho, formaPagamento, nparcelas, "");
+						break;
+					}else {
+						System.out.println("Numero de parcelas inválido!");
+						}
+				}
 				break;
 		}
 		
@@ -104,48 +121,72 @@ public class Carrinho {
 	}
 	
 	public void limparTela() {
+
 		try {
-			Runtime.getRuntime().exec("clear");
+			Process process = Runtime.getRuntime().exec("cls");
 		} catch (IOException e) {
 			System.out.println("comando não suportado pelo sistema");
 		}
+
+//		try {
+//			Process process = Runtime.getRuntime().exec("clear");
+//		} catch (IOException e) {
+//			System.out.println("comando não suportado pelo sistema");
+//		}
+		for (int i = 0; i < 50; ++i) System.out.println();
+//	    System.out.print("\033[H\033[2J");  
+//	    System.out.flush(); 
+		
+//        ProcessBuilder processBuilder = new ProcessBuilder();
+//        // Windows
+//        processBuilder.command("clear");
+//
+//        try {
+//            Process process = processBuilder.start();
+//            int exitCode = process.waitFor();
+////            System.out.println("\nExited with error code : " + exitCode);
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
 	}
 	
-	public void iniciarCompra() {
+	public void iniciarCompra()  {
 		
 		int id = -1;
 		int qntEscolhida = 0;
+
+//		estoque.listarProduto();
 		
-		while(id != 0) {
-			
-//			limparTela();
-			try {
-				Runtime.getRuntime().exec("clear");
-			} catch (IOException e) {
-				System.out.println("comando não suportado pelo sistema");
-			}
+		do {
+			limparTela();
 			estoque.listarProduto();
 			
-			System.out.println("> digite o id do produto e a quantidade desejada (digite 0 para concluir compra)\n");
+
+			System.out.println("-----------------------------");
+			System.out.printf("> digite o id do produto e a quantidade desejada (digite 0 para concluir a compra)\n> ");
 			Scanner resposta = new Scanner(System.in);
 			
 			id = resposta.nextInt();
 			if (id == 0) break;
-			else {
+//			else {
 				qntEscolhida = resposta.nextInt();
-				
-				if (id != 0) {
-					for (Produto produtoEscolhido : estoque.getProdutos().keySet()) {
-						if (produtoEscolhido.getId_produto() == id) {
-							adicionaItem(produtoEscolhido, qntEscolhida);
-							estoque.removerProduto(produtoEscolhido, qntEscolhida);
-							break;
-						}
+				for (Produto produtoEscolhido : estoque.getProdutos().keySet()) {
+					if (produtoEscolhido.getId_produto() == id) {
+							if(estoque.getProdutos().get(produtoEscolhido) >= qntEscolhida) {
+								adicionaItem(produtoEscolhido, qntEscolhida);
+								estoque.removerProduto(produtoEscolhido, qntEscolhida);
+								break;
+							} else {
+								System.out.println("\nProduto fora de estoque!");
+							}
 					}
 				}
-			}
-//			resposta.close();
-		}
+//			}
+		}while(id != 0);
 		fecharCompra();
 	}
 
